@@ -10,9 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var movieController: MoviesController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        movieController = MoviesController()
+        
+        movieController.fetch(queryParam: [:])
     }
 
 
