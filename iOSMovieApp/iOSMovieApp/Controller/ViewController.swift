@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MoviesControllerDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MoviesControllerDelegate, UITabBarDelegate {
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -21,7 +21,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     var filteredMovies = [Movie](){
         didSet {
-            tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
         }
     }
     
@@ -57,7 +60,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // MARK := MoviesController Delegate
     
     func didFetchMovies(data: [Movie]) {
-        MBProgressHUD.hide(for: self.view, animated: true)
+        DispatchQueue.main.async { // Make sure you're on the main thread here
+            MBProgressHUD.hide(for: self.view, animated: true)
+        }
         self.movies = data
         self.filteredMovies = data
     }
@@ -68,6 +73,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         refresher = UIRefreshControl()
         refresher.addTarget(self, action: #selector(self.fetchData), for: .valueChanged)
         tableView.insertSubview(refresher, at: 0)
+    }
+    
+    // MARK := Tab Bar Control
+    
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem){
+        print("lol")
+        switch tabBar.items?.index(of: item) {
+        case 2:
+            print("fac")
+            //performSegue(withIdentifier: "theatreMain", sender: nil)
+        default:
+            print("ss")
+        }
     }
 }
 
