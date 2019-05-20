@@ -8,9 +8,16 @@
 
 import Foundation
 
+protocol MoviesControllerDelegate{
+    func didFetchMovies(data: [Movie])
+}
+
 class MoviesController{
     private let movieAPIKey: String = "4b2ca740a7a3bfc4ba30abef86f5d389"
     private var movies: [Movie] = []
+    
+    var delegate: MoviesControllerDelegate?
+    
     /// Fetch movies from an online API
     ///
     /// - Parameter url: API url of movies to fetch
@@ -26,10 +33,7 @@ class MoviesController{
                         do{
                             let decoded = try JSONDecoder().decode(MovieList.self, from: fdata)
                             self.movies = decoded.results
-                            for movie in self.movies{
-                                print(movie.title)
-                            }
-                            //self.delegate?.didFetchData(sender: self)
+                            self.delegate?.didFetchMovies(data: self.movies)
                         } catch {
                             print(error)
                         }
