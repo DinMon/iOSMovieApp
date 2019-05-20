@@ -48,6 +48,41 @@ struct Movie: Codable {
         case adult, overview
         case releaseDate = "release_date"
     }
+    
+    var backdropImageURLMedium: URL?
+    var backdropImageURLHigh: URL?
+    var backdropImageURLLow: URL?
+    
+    
+    var posterImageURLMedium: URL?
+    var posterImageURLHigh: URL?
+    var posterImageURLLow: URL?
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        voteCount = try container.decode(Int.self, forKey: .voteCount)
+        id = try container.decode(Int.self, forKey: .id)
+        video = try container.decode(Bool.self, forKey: .video)
+        voteAverage = try container.decode(Double.self, forKey: .voteAverage)
+        title = try container.decode(String.self, forKey: .title)
+        popularity = try container.decode(Double.self, forKey: .popularity)
+        posterPath = try container.decode(String.self, forKey: .posterPath)
+        originalLanguage = try container.decode(OriginalLanguage.self, forKey: .originalLanguage)
+        originalTitle = try container.decode(String.self, forKey: .originalTitle)
+        genreIDS = try container.decode([Int].self, forKey: .genreIDS)
+        backdropPath = try container.decode(String.self, forKey: .backdropPath)
+        adult = try container.decode(Bool.self, forKey: .adult)
+        overview = try container.decode(String.self, forKey: .overview)
+        releaseDate = try container.decode(String.self, forKey: .releaseDate)
+        
+        backdropImageURLMedium = URL(string: MoviesController.imgBaseString + "w500" + backdropPath)
+        backdropImageURLHigh = URL(string: MoviesController.imgBaseString + "original" + backdropPath)
+        backdropImageURLLow = URL(string: MoviesController.imgBaseString + "w45" + backdropPath)
+        
+        posterImageURLMedium = URL(string: MoviesController.imgBaseString + "w500" + posterPath)
+        posterImageURLHigh = URL(string: MoviesController.imgBaseString + "original" + posterPath)
+        posterImageURLLow = URL(string: MoviesController.imgBaseString + "w45" + posterPath)
+    }
 }
 
 enum OriginalLanguage: String, Codable {

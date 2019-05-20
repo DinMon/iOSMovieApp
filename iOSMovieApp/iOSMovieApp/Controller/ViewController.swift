@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MoviesControllerDelegate, UITabBarDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MoviesControllerDelegate {
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -44,20 +44,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as! MovieTableViewCell
         
-        cell.textLabel?.text = filteredMovies[indexPath.row].title
+        let movie: Movie = filteredMovies[indexPath.row]
+        
+        cell.title!.text = movie.title
+        
+        cell.releaseDate!.text = movie.releaseDate.components(separatedBy: "-")[0]
+        
+        cell.rating!.text = String(movie.voteAverage)
+        
+        cell.movieImage!.load(url: movie.posterImageURLMedium!)
+        
+        cell.overview!.text = movie.overview
         
         return cell
     }
     
-    // MARK := Fetch from Network controller
+    // MARK :- Fetch from Network controller
     @objc func fetchData(){
         MBProgressHUD.showAdded(to: self.view, animated: true)
         movieController?.fetch(queryParam: [:])
     }
 
-    // MARK := MoviesController Delegate
+    // MARK :- MoviesController Delegate
     
     func didFetchMovies(data: [Movie]) {
         DispatchQueue.main.async { // Make sure you're on the main thread here
@@ -67,25 +77,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.filteredMovies = data
     }
     
-    // MARK := UIRefreshControl
+    // MARK :- UIRefreshControl
     
     func setupRefreshControls() {
         refresher = UIRefreshControl()
         refresher.addTarget(self, action: #selector(self.fetchData), for: .valueChanged)
         tableView.insertSubview(refresher, at: 0)
-    }
-    
-    // MARK := Tab Bar Control
-    
-    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem){
-        print("lol")
-        switch tabBar.items?.index(of: item) {
-        case 2:
-            print("fac")
-            //performSegue(withIdentifier: "theatreMain", sender: nil)
-        default:
-            print("ss")
-        }
     }
 }
 
