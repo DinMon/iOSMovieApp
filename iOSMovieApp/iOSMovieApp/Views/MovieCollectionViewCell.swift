@@ -1,5 +1,5 @@
 //
-//  TheatreViewController.swift
+//  MovieCollectionViewCell.swift
 //  iOSMovieApp
 //
 //  Created by GUILLAUME DINYS MONVOISIN on 21/5/19.
@@ -8,9 +8,7 @@
 
 import UIKit
 
-class TheatreViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+class MovieCollectionViewCell: UICollectionViewCell {
+    
+    @IBOutlet weak var movieImage: UIImageView!
 }
