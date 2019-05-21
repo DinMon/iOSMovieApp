@@ -1,0 +1,40 @@
+[
+    {
+        "vote_count": 79,
+        "id": 449562,
+        "video": false,
+        "vote_average": 6.1,
+        "title": "The Hustle",
+        "popularity": 116.759,
+        "poster_path": "/qibqW5Dnvqp4hcEnoTARbQgxwJy.jpg",
+        "original_language": "en",
+        "original_title": "The Hustle",
+        "genre_ids": [
+        35
+        ],
+        "backdrop_path": "/s6awXOxTKYQLSktiIJfI3969dZH.jpg",
+        "adult": false,
+        "overview": "Two female scam artists, one low rent and the other high class, compete to swindle a naïve tech prodigy out of his fortune. A remake of the 1988 comedy \"Dirty Rotten Scoundrels.\"",
+        "release_date": "2019-05-09"
+    },
+    {
+        "vote_count": 62,
+        "id": 526050,
+        "video": false,
+        "vote_average": 6,
+        "title": "Little",
+        "popularity": 76.879,
+        "poster_path": "/4MDB6jJl3U7xK1Gw64zIqt9pQA4.jpg",
+        "original_language": "en",
+        "original_title": "Little",
+        "genre_ids": [
+        35,
+        14
+        ],
+        "backdrop_path": "/tmM78qRhpg0i2Cky8Q8hXKASOXY.jpg",
+        "adult": false,
+        "overview": "A woman receives the chance to relive the life of her younger self, at a point in her life when the pressures of adulthood become too much for her to bear.",
+        "release_date": "2019-04-04"
+    }
+]
+

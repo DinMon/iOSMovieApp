@@ -41,16 +41,16 @@
         <!--WishListViewController-->
         <scene sceneID="4Jy-ON-aj9">
             <objects>
-                <viewController title="WishListViewController" id="PYh-E0-XDZ" sceneMemberID="viewController">
+                <viewController title="WishListViewController" id="PYh-E0-XDZ" customClass="FavouriteViewController" customModule="iOSMovieApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a2j-kR-ybd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4an-Tm-LNn">
                                 <rect key="frame" x="0.0" y="116" width="375" height="502"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Ulg-e3-4IY">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="removeCell" id="Ulg-e3-4IY" customClass="RemoveMovieTableViewCell" customModule="iOSMovieApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ulg-e3-4IY" id="8p1-f8-PZZ">
@@ -60,30 +60,40 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hVE-ef-BUq">
                                                     <rect key="frame" x="295" y="0.0" width="80" height="80"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="80" id="a9o-eT-3i1"/>
+                                                        <constraint firstAttribute="width" constant="80" id="Ova-4n-ZSx"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transformer 5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Scp-mv-R7c">
-                                                    <rect key="frame" x="85" y="29.5" width="202" height="20.5"/>
+                                                    <rect key="frame" x="15" y="11" width="272" height="52"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="202" id="iot-1B-7Qt"/>
+                                                        <constraint firstAttribute="height" constant="52" id="9m0-WA-ibU"/>
+                                                        <constraint firstAttribute="width" constant="272" id="iot-1B-7Qt"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="272" id="mB7-hV-JMz"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="hVE-ef-BUq" secondAttribute="bottom" constant="-0.5" id="6fg-GJ-MzR"/>
-                                                <constraint firstAttribute="trailing" secondItem="hVE-ef-BUq" secondAttribute="trailing" id="95y-AL-Ze0"/>
-                                                <constraint firstItem="hVE-ef-BUq" firstAttribute="top" secondItem="8p1-f8-PZZ" secondAttribute="top" id="AW9-dD-M9R"/>
-                                                <constraint firstItem="Scp-mv-R7c" firstAttribute="centerY" secondItem="8p1-f8-PZZ" secondAttribute="centerY" id="Gke-pC-WUn"/>
-                                                <constraint firstItem="hVE-ef-BUq" firstAttribute="leading" secondItem="Scp-mv-R7c" secondAttribute="trailing" constant="8" id="Jla-ZR-dKn"/>
-                                                <constraint firstItem="hVE-ef-BUq" firstAttribute="leading" secondItem="Scp-mv-R7c" secondAttribute="trailing" constant="8" id="da6-Cm-re4"/>
+                                                <constraint firstAttribute="bottom" secondItem="hVE-ef-BUq" secondAttribute="bottom" constant="-0.5" id="7xA-co-hhB"/>
+                                                <constraint firstItem="Scp-mv-R7c" firstAttribute="centerY" secondItem="8p1-f8-PZZ" secondAttribute="centerY" constant="-2.75" id="Gke-pC-WUn"/>
+                                                <constraint firstAttribute="trailing" secondItem="hVE-ef-BUq" secondAttribute="trailing" id="Oqh-tk-qXz"/>
+                                                <constraint firstItem="hVE-ef-BUq" firstAttribute="leading" secondItem="Scp-mv-R7c" secondAttribute="trailing" constant="8" id="VQj-87-4Zc"/>
+                                                <constraint firstItem="hVE-ef-BUq" firstAttribute="top" secondItem="8p1-f8-PZZ" secondAttribute="top" id="xbb-sr-OTU"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieImg" destination="hVE-ef-BUq" id="Vb1-a9-9nf"/>
+                                            <outlet property="title" destination="Scp-mv-R7c" id="wqj-c3-dr1"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="PYh-E0-XDZ" id="9Od-Sv-3x4"/>
+                                    <outlet property="delegate" destination="PYh-E0-XDZ" id="AYS-VI-Jgw"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -96,6 +106,9 @@
                         <viewLayoutGuide key="safeArea" id="L7h-VB-bip"/>
                     </view>
                     <navigationItem key="navigationItem" title="Favourite" id="VLk-ZP-wSD"/>
+                    <connections>
+                        <outlet property="tableView" destination="4an-Tm-LNn" id="1vd-Wb-1bl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EYp-cR-oPv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
