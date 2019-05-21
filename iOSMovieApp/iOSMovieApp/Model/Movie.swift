@@ -22,17 +22,18 @@ struct MovieList: Codable {
 
 // MARK: - Result
 struct Movie: Codable {
-    let voteCount, id: Int
-    let video: Bool
-    let voteAverage: Double
+    let voteCount: Int?
+    let id: Int
+    let video: Bool?
+    let voteAverage: Double?
     let title: String
-    let popularity: Double
-    let posterPath: String
-    let originalTitle: String
-    let genreIDS: [Int]
-    let backdropPath: String
-    let adult: Bool
-    let overview, releaseDate: String
+    let popularity: Double?
+    let posterPath: String?
+    let originalTitle: String?
+    let genreIDS: [Int]?
+    let backdropPath: String?
+    let adult: Bool?
+    let overview, releaseDate: String?
     
     enum CodingKeys: String, CodingKey {
         case voteCount = "vote_count"
@@ -58,27 +59,39 @@ struct Movie: Codable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        voteCount = try container.decode(Int.self, forKey: .voteCount)
+        voteCount = try container.decodeIfPresent(Int.self, forKey: .voteCount)
         id = try container.decode(Int.self, forKey: .id)
-        video = try container.decode(Bool.self, forKey: .video)
-        voteAverage = try container.decode(Double.self, forKey: .voteAverage)
+        video = try container.decodeIfPresent(Bool.self, forKey: .video)
+        voteAverage = try container.decodeIfPresent(Double.self, forKey: .voteAverage)
         title = try container.decode(String.self, forKey: .title)
-        popularity = try container.decode(Double.self, forKey: .popularity)
-        posterPath = try container.decode(String.self, forKey: .posterPath)
-        originalTitle = try container.decode(String.self, forKey: .originalTitle)
-        genreIDS = try container.decode([Int].self, forKey: .genreIDS)
-        backdropPath = try container.decode(String.self, forKey: .backdropPath)
-        adult = try container.decode(Bool.self, forKey: .adult)
-        overview = try container.decode(String.self, forKey: .overview)
-        releaseDate = try container.decode(String.self, forKey: .releaseDate)
+        popularity = try container.decodeIfPresent(Double.self, forKey: .popularity)
+        posterPath = try container.decodeIfPresent(String.self, forKey: .posterPath)
+        originalTitle = try container.decodeIfPresent(String.self, forKey: .originalTitle)
+        genreIDS = try container.decodeIfPresent([Int].self, forKey: .genreIDS)
+        backdropPath = try container.decodeIfPresent(String.self, forKey: .backdropPath)
+        adult = try container.decodeIfPresent(Bool.self, forKey: .adult)
+        overview = try container.decodeIfPresent(String.self, forKey: .overview)
+        releaseDate = try container.decodeIfPresent(String.self, forKey: .releaseDate)
         
-        backdropImageURLMedium = URL(string: MoviesController.imgBaseString + "w500" + backdropPath)
-        backdropImageURLHigh = URL(string: MoviesController.imgBaseString + "original" + backdropPath)
-        backdropImageURLLow = URL(string: MoviesController.imgBaseString + "w45" + backdropPath)
+        if let bdPath = backdropPath{
+            backdropImageURLMedium = URL(string: MoviesController.imgBaseString + "w500" + bdPath)
+            backdropImageURLHigh = URL(string: MoviesController.imgBaseString + "original" + bdPath)
+            backdropImageURLLow = URL(string: MoviesController.imgBaseString + "w45" + bdPath)
+        }
         
-        posterImageURLMedium = URL(string: MoviesController.imgBaseString + "w500" + posterPath)
-        posterImageURLHigh = URL(string: MoviesController.imgBaseString + "original" + posterPath)
-        posterImageURLLow = URL(string: MoviesController.imgBaseString + "w45" + posterPath)
+        if let postPath = posterPath{
+            posterImageURLMedium = URL(string: MoviesController.imgBaseString + "w500" + postPath)
+            posterImageURLHigh = URL(string: MoviesController.imgBaseString + "original" + postPath)
+            posterImageURLLow = URL(string: MoviesController.imgBaseString + "w45" + postPath)
+        }
+        
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(title, forKey: .title)
+        try container.encode(posterPath, forKey: .posterPath)
     }
 }
 

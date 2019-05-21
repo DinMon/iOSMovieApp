@@ -46,6 +46,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nYh-Cx-wwl">
+                                <rect key="frame" x="0.0" y="116" width="375" height="502"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_movie" translatesAutoresizingMaskIntoConstraints="NO" id="0sY-lA-Ehw">
+                                        <rect key="frame" x="167.5" y="289" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="4GX-2P-L0h"/>
+                                            <constraint firstAttribute="height" constant="40" id="sFH-5L-4in"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a movie to favourite to view" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qw4-tO-TqP">
+                                        <rect key="frame" x="87.5" y="233" width="200" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="mCg-5h-73U"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
+                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Qw4-tO-TqP" firstAttribute="centerY" secondItem="nYh-Cx-wwl" secondAttribute="centerY" id="Qgw-PX-P8y"/>
+                                    <constraint firstItem="0sY-lA-Ehw" firstAttribute="centerX" secondItem="nYh-Cx-wwl" secondAttribute="centerX" id="fzc-ho-MF2"/>
+                                    <constraint firstItem="0sY-lA-Ehw" firstAttribute="top" secondItem="Qw4-tO-TqP" secondAttribute="bottom" constant="20" id="k5o-rz-Ttt"/>
+                                    <constraint firstItem="Qw4-tO-TqP" firstAttribute="centerX" secondItem="nYh-Cx-wwl" secondAttribute="centerX" id="mrZ-6Q-DLM"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4an-Tm-LNn">
                                 <rect key="frame" x="0.0" y="116" width="375" height="502"/>
                                 <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -98,15 +126,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="L7h-VB-bip" firstAttribute="bottom" secondItem="nYh-Cx-wwl" secondAttribute="bottom" id="3Ci-Sf-yJ6"/>
+                            <constraint firstItem="L7h-VB-bip" firstAttribute="trailing" secondItem="nYh-Cx-wwl" secondAttribute="trailing" id="9MU-le-B30"/>
                             <constraint firstItem="4an-Tm-LNn" firstAttribute="trailing" secondItem="L7h-VB-bip" secondAttribute="trailing" id="a0G-fe-Nb6"/>
                             <constraint firstItem="4an-Tm-LNn" firstAttribute="bottom" secondItem="L7h-VB-bip" secondAttribute="bottom" id="dDt-yO-2cE"/>
+                            <constraint firstItem="nYh-Cx-wwl" firstAttribute="top" secondItem="L7h-VB-bip" secondAttribute="top" id="dje-ll-doX"/>
                             <constraint firstItem="4an-Tm-LNn" firstAttribute="top" secondItem="L7h-VB-bip" secondAttribute="top" id="ibY-iv-J4b"/>
                             <constraint firstItem="4an-Tm-LNn" firstAttribute="leading" secondItem="L7h-VB-bip" secondAttribute="leading" id="qag-mB-kbq"/>
+                            <constraint firstItem="nYh-Cx-wwl" firstAttribute="leading" secondItem="L7h-VB-bip" secondAttribute="leading" id="wT9-td-4dw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="L7h-VB-bip"/>
                     </view>
                     <navigationItem key="navigationItem" title="Favourite" id="VLk-ZP-wSD"/>
                     <connections>
+                        <outlet property="noFavourite" destination="nYh-Cx-wwl" id="5ci-Iu-Doj"/>
                         <outlet property="tableView" destination="4an-Tm-LNn" id="1vd-Wb-1bl"/>
                     </connections>
                 </viewController>

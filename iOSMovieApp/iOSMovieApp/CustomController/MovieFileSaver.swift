@@ -46,6 +46,25 @@ class MovieFileSaver{
         return true
     }
     
+    func saveJsonToFile(filename fileName:String, data: Data){
+        let documentsUrl = getDocumentsDirectory()
+        let destFile = documentsUrl.appendingPathComponent(fileName).appendingPathExtension("json")
+        if FileManager.default.fileExists(atPath: destFile.path)
+        {
+            do {
+                try data.write(to: destFile, options: .atomic)
+            } catch let error{
+                print(error.localizedDescription)
+            }
+        }else{
+            do{
+                try "".write(to: destFile, atomically: true, encoding: .utf8)
+            } catch let error{
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
     func loadJson(filename fileName: String){
         if copyFileToDocuments(filename: fileName){
             let fileToReadUrl = getDocumentsDirectory().appendingPathComponent(fileName).appendingPathExtension("json")

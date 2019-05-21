@@ -12,10 +12,15 @@ class FavouriteViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var noFavourite: UIView!
+    
     var movies = [Movie](){
         didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                if self.movies.count == 0{
+                    self.tableView.backgroundView = self.noFavourite
+                }
             }
             
         }
@@ -68,9 +73,19 @@ class FavouriteViewController: UIViewController, UITableViewDelegate, UITableVie
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
             
             //TODO: Update the local json file in a background thread
+
             DispatchQueue.global(qos: .utility).async {
                 // encode
+                do {
+                    let jsonEncoder = JSONEncoder()
+                    let jsonData = try jsonEncoder.encode(self.movies)
+                    self.movieFileSaver?.saveJsonToFile(filename: "movies", data: jsonData)
+                } catch let error{
+                    print(error.localizedDescription)
+                }
+                
             }
+            
             completion(true)
         }
         action.image = UIImage(named: "delete")

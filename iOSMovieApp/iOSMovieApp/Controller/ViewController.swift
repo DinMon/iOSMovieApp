@@ -50,9 +50,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         cell.title!.text = movie.title
         
-        cell.releaseDate!.text = movie.releaseDate.components(separatedBy: "-")[0]
+        cell.releaseDate!.text = movie.releaseDate!.components(separatedBy: "-")[0]
         
-        cell.rating!.text = String(movie.voteAverage)
+        cell.rating!.text = String(movie.voteAverage!)
         
         cell.movieImage!.load(url: movie.posterImageURLMedium!)
         
