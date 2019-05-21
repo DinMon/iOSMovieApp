@@ -1,5 +1,5 @@
 //
-//  TopRatedViewController.swift
+//  TheatreViewController.swift
 //  iOSMovieApp
 //
 //  Created by GUILLAUME DINYS MONVOISIN on 21/5/19.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class TopRatedViewController: UIViewController {
-    
+class TheatreViewController: UIViewController {
+
     private var gridViewController: GridViewController?
     
-    let endpoint :String = "discover/movie?sort_by=popularity.desc&"
+    let endpoint :String = "movie/now_playing?"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,4 +31,5 @@ class TopRatedViewController: UIViewController {
             gridController.endpoint = endpoint
         }
     }
+
 }

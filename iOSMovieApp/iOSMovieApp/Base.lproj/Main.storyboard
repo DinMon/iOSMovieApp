@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="hid-6J-3Kk">
             <objects>
-                <tabBarController id="2SS-TW-xtp" sceneMemberID="viewController">
+                <tabBarController id="2SS-TW-xtp" customClass="TabBarViewController" customModule="iOSMovieApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2zi-0I-PXQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -57,7 +57,7 @@
         <!--TheatreViewController-->
         <scene sceneID="Amf-9i-nH3">
             <objects>
-                <viewController title="TheatreViewController" id="ttH-LK-0oX" customClass="TopRatedViewController" customModule="iOSMovieApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="TheatreViewController" id="ttH-LK-0oX" customClass="TheatreViewController" customModule="iOSMovieApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="483-dy-Ab0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -422,6 +422,7 @@
                             <constraint firstItem="qtP-qV-hWw" firstAttribute="top" secondItem="MDA-TC-pOQ" secondAttribute="bottom" id="Okh-wO-org"/>
                             <constraint firstAttribute="trailing" secondItem="MDA-TC-pOQ" secondAttribute="trailing" id="VSc-jv-nY3"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="qX6-6P-T8R"/>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="qtP-qV-hWw" id="8Og-A4-aYx"/>

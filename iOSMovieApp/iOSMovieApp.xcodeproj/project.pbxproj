@@ -20,6 +20,7 @@
 		9F925BA12293D3A800663C89 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F925BA02293D3A800663C89 /* MovieCollectionViewCell.swift */; };
 		9F925BA32293D79700663C89 /* TopRatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F925BA22293D79700663C89 /* TopRatedViewController.swift */; };
 		9F925BA5229410C000663C89 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F925BA4229410C000663C89 /* GridViewController.swift */; };
+		9FBEC0822294332D0088FB0D /* TheatreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBEC0812294332D0088FB0D /* TheatreViewController.swift */; };
 		9FE7D5982292E105004AEBEF /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7D5972292E105004AEBEF /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		9F925BA02293D3A800663C89 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		9F925BA22293D79700663C89 /* TopRatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedViewController.swift; sourceTree = "<group>"; };
 		9F925BA4229410C000663C89 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
+		9FBEC0812294332D0088FB0D /* TheatreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheatreViewController.swift; sourceTree = "<group>"; };
 		9FE7D5952292E0E4004AEBEF /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		9FE7D5962292E104004AEBEF /* iOSMovieApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSMovieApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		9FE7D5972292E105004AEBEF /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				9F4DA26922926DE800E7AE75 /* ViewController.swift */,
 				9F925BA22293D79700663C89 /* TopRatedViewController.swift */,
 				9F925BA4229410C000663C89 /* GridViewController.swift */,
+				9FBEC0812294332D0088FB0D /* TheatreViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 			files = (
 				9F4DA26A22926DE800E7AE75 /* ViewController.swift in Sources */,
 				9F4DA26822926DE800E7AE75 /* AppDelegate.swift in Sources */,
+				9FBEC0822294332D0088FB0D /* TheatreViewController.swift in Sources */,
 				9F70BB6422931F5500F5D0C9 /* MovieTableViewCell.swift in Sources */,
 				9FE7D5982292E105004AEBEF /* MBProgressHUD.m in Sources */,
 				9F23489822929256008DE1FA /* Movie.swift in Sources */,

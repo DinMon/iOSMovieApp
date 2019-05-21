@@ -12,6 +12,8 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var endpoint: String = ""
+    
     var movieController: MoviesController?
     var movies = [Movie]()
     
@@ -33,13 +35,13 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        fetchData()
+        fetchData(endpoint: self.endpoint)//"discover/movie?sort_by=popularity.desc&")
     }
     
     // MARK :- Fetch from Network controller
-    @objc func fetchData(){
+    @objc func fetchData(endpoint: String){
         MBProgressHUD.showAdded(to: self.view, animated: true)
-        movieController?.fetch(queryParam: [:])
+        movieController?.fetch(endpoint: endpoint)
     }
     
     func didFetchMovies(data: [Movie]) {

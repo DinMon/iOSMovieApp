@@ -9,7 +9,7 @@
 import Foundation
 
 struct MovieList: Codable {
-    let page, totalResults, totalPages: Int
+    let page, totalResults, totalPages: Int?
     let results: [Movie]
     
     enum CodingKeys: String, CodingKey {
@@ -28,7 +28,6 @@ struct Movie: Codable {
     let title: String
     let popularity: Double
     let posterPath: String
-    let originalLanguage: OriginalLanguage
     let originalTitle: String
     let genreIDS: [Int]
     let backdropPath: String
@@ -41,7 +40,6 @@ struct Movie: Codable {
         case voteAverage = "vote_average"
         case title, popularity
         case posterPath = "poster_path"
-        case originalLanguage = "original_language"
         case originalTitle = "original_title"
         case genreIDS = "genre_ids"
         case backdropPath = "backdrop_path"
@@ -67,7 +65,6 @@ struct Movie: Codable {
         title = try container.decode(String.self, forKey: .title)
         popularity = try container.decode(Double.self, forKey: .popularity)
         posterPath = try container.decode(String.self, forKey: .posterPath)
-        originalLanguage = try container.decode(OriginalLanguage.self, forKey: .originalLanguage)
         originalTitle = try container.decode(String.self, forKey: .originalTitle)
         genreIDS = try container.decode([Int].self, forKey: .genreIDS)
         backdropPath = try container.decode(String.self, forKey: .backdropPath)

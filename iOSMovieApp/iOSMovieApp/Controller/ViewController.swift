@@ -36,7 +36,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         movieController = MoviesController()
         movieController?.delegate = self
         
-        fetchData()
+        fetchData(endpoint: "movie/upcoming?")
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
@@ -62,9 +62,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     // MARK :- Fetch from Network controller
-    @objc func fetchData(){
+    @objc func fetchData(endpoint: String){
         MBProgressHUD.showAdded(to: self.view, animated: true)
-        movieController?.fetch(queryParam: [:])
+        movieController?.fetch(endpoint: endpoint)
     }
 
     // MARK :- MoviesController Delegate

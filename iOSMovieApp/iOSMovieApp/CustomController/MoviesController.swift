@@ -51,10 +51,10 @@ class MoviesController{
     /// Fetch movies from specific query string passed
     ///
     /// - Parameter query: String parameter to determine category of movies to fetch(genres,recent,top rated)
-    public func fetch(queryParam query: [String: String]){
+    public func fetch(endpoint: String){
         //TODO: upwrap dictinary query to a string URL
-        
-        fetchMovies(url: "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc")
+        print("https://api.themoviedb.org/3/\(endpoint)api_key=\(MoviesController.movieAPIKey)")
+        fetchMovies(url: "https://api.themoviedb.org/3/\(endpoint)api_key=\(MoviesController.movieAPIKey)")
     }
 }
 
