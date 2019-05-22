@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F1A1CD42295A77700BD48D2 /* FavouriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A1CD32295A77700BD48D2 /* FavouriteController.swift */; };
 		9F23489622928F4E008DE1FA /* MoviesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F23489522928F4E008DE1FA /* MoviesController.swift */; };
 		9F23489822929256008DE1FA /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F23489722929256008DE1FA /* Movie.swift */; };
 		9F3DD4ED229566DC0089AC3B /* RecommendationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3DD4EC229566DC0089AC3B /* RecommendationCollectionViewCell.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9F1A1CD32295A77700BD48D2 /* FavouriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteController.swift; sourceTree = "<group>"; };
 		9F23489522928F4E008DE1FA /* MoviesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesController.swift; sourceTree = "<group>"; };
 		9F23489722929256008DE1FA /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		9F3DD4EC229566DC0089AC3B /* RecommendationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			children = (
 				9F23489522928F4E008DE1FA /* MoviesController.swift */,
 				9FE6BCFD2294458600E08E4C /* MovieFileSaver.swift */,
+				9F1A1CD32295A77700BD48D2 /* FavouriteController.swift */,
 			);
 			path = CustomController;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				9F70BB6422931F5500F5D0C9 /* MovieTableViewCell.swift in Sources */,
 				9FE7D5982292E105004AEBEF /* MBProgressHUD.m in Sources */,
 				9FE6BCFC2294430100E08E4C /* RemoveMovieTableViewCell.swift in Sources */,
+				9F1A1CD42295A77700BD48D2 /* FavouriteController.swift in Sources */,
 				9F23489822929256008DE1FA /* Movie.swift in Sources */,
 				9F23489622928F4E008DE1FA /* MoviesController.swift in Sources */,
 				9F925BA12293D3A800663C89 /* MovieCollectionViewCell.swift in Sources */,

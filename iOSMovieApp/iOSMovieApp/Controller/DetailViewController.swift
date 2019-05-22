@@ -8,7 +8,9 @@
 
 import UIKit
 
-class DetailViewController: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, MoviesControllerDelegate {
+class DetailViewController: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, MoviesControllerDelegate,MovieFileSaverDelegate {
+    
+    
     
     var movieController: MoviesController?
     var movieId: Int?
@@ -36,6 +38,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
     // Recommendations
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var favBtn: UIButton!
+    
     var recommendations = [RecommendationsResult](){
         didSet {
             DispatchQueue.main.async {
@@ -55,6 +59,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
         movieController?.delegate = self
         
         movieController?.fetchMovie(id: movieId!)
+        
+        
     }
     
     @IBAction func loadTrailer(_ sender: Any) {
@@ -69,6 +75,25 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
             return
         }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+    
+    @IBAction func addFavourite(_ sender: Any) {
+        if favBtn.titleLabel!.text == "Add Favourite"{
+            if let movieRead = movieDetail{
+                let movie : Movie = Movie(id: movieRead.id!, title: movieRead.title!, posterPath: movieRead.posterPath!)
+                FavouriteController.shared.saveSingleFavourite(sender: self, movie: movie)
+            }else{
+                print("Cannot add movie to favourite")
+            }
+        }else if favBtn.titleLabel!.text == "Remove Favourite"{
+            if let movieRead = movieDetail{
+                FavouriteController.shared.removeSingleFavourite(sender: self, id: movieRead.id!)
+            }else{
+                print("Cannot remove movie to favourite")
+            }
+        }
+        
+        
     }
     
     func updateUIMovieDetail(){
@@ -121,14 +146,39 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
     }
 
     func didFetchMovies(data: [Movie]) {
-        // Do being use
+        if data.contains(where: { movie in movie.id == movieDetail!.id }) {
+            changeBtnToRemove()
+        }
     }
     
     func didFetchMovie(data: MovieDetail) {
         self.movieDetail = data
+        FavouriteController.shared.requestForFavourites(sender: self)
         self.recommendations = (data.recommendations?.results)!
         DispatchQueue.main.async {
             self.updateUIMovieDetail()
         }
+    }
+    
+    func changeBtnToRemove(){
+        DispatchQueue.main.async {
+            self.favBtn.setTitle("Remove Favourite", for: .normal)
+            self.favBtn.setTitleColor(.red, for: .normal)
+        }
+    }
+    
+    func changeBtnToFavourite(){
+        DispatchQueue.main.async {
+            self.favBtn.setTitle("Add Favourite", for: .normal)
+            self.favBtn.setTitleColor(.green, for: .normal)
+        }
+    }
+    
+    func didAppendMovie() {
+        changeBtnToRemove()
+    }
+    
+    func didRemoveMovie() {
+        changeBtnToFavourite()
     }
 }

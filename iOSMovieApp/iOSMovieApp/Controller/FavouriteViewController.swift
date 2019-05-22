@@ -9,6 +9,14 @@
 import UIKit
 
 class FavouriteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,MovieFileSaverDelegate {
+    func didRemoveMovie() {
+        //do nothing
+    }
+    
+    func didAppendMovie() {
+        // Do nothing
+    }
+    
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -26,14 +34,10 @@ class FavouriteViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
-    var movieFileSaver: MovieFileSaver?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        movieFileSaver = MovieFileSaver()
-        movieFileSaver?.delegate = self
         
         fetchMovieFile()
         
@@ -42,7 +46,7 @@ class FavouriteViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func fetchMovieFile(){
         MBProgressHUD.showAdded(to: self.view, animated: true)
-        movieFileSaver?.loadJson(filename: "movies")
+        FavouriteController.shared.requestForFavourites(sender: self)
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
@@ -79,7 +83,7 @@ class FavouriteViewController: UIViewController, UITableViewDelegate, UITableVie
                 do {
                     let jsonEncoder = JSONEncoder()
                     let jsonData = try jsonEncoder.encode(self.movies)
-                    self.movieFileSaver?.saveJsonToFile(filename: "movies", data: jsonData)
+                    FavouriteController.shared.saveFavourites(sender: self, data: jsonData)
                 } catch let error{
                     print(error.localizedDescription)
                 }

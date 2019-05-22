@@ -461,6 +461,9 @@
                                                                         <integer key="value" value="5"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="addFavourite:" destination="Squ-Vg-9dn" eventType="touchUpInside" id="wlY-TG-ikg"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LoX-F1-g6H">
                                                                 <rect key="frame" x="203" y="42" width="23" height="19.5"/>
@@ -711,6 +714,7 @@
                         <outlet property="collectionView" destination="nOd-Dw-Ivi" id="eoJ-md-C3b"/>
                         <outlet property="companyName" destination="GCz-QV-zRc" id="TBP-EJ-2pt"/>
                         <outlet property="countryName" destination="mk0-WA-nQy" id="cXZ-GD-67o"/>
+                        <outlet property="favBtn" destination="ro9-rx-O9f" id="OBd-q7-BZW"/>
                         <outlet property="genre" destination="2ZT-xl-iSZ" id="2hg-rS-vML"/>
                         <outlet property="imageView" destination="jfr-S6-Dop" id="0OY-ro-COt"/>
                         <outlet property="mainStackView" destination="vNB-NW-m6d" id="SWO-cA-qj1"/>

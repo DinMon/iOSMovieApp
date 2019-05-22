@@ -10,6 +10,8 @@ import Foundation
 
 protocol MovieFileSaverDelegate{
     func didFetchMovies(data: [Movie])
+    func didAppendMovie()
+    func didRemoveMovie()
 }
 
 class MovieFileSaver{
@@ -46,6 +48,33 @@ class MovieFileSaver{
         return true
     }
     
+    func appendJsonFile(filename fileName:String, movie: Movie){
+        var favouriteList = loadJsonData(filename: fileName)
+        favouriteList.append(movie)
+        do{
+            let jsonEncoder = JSONEncoder()
+            let jsonData = try jsonEncoder.encode(favouriteList)
+            saveJsonToFile(filename: fileName, data: jsonData)
+            self.delegate?.didAppendMovie()
+        }catch let error{
+            print(error.localizedDescription)
+        }
+    }
+    
+    func removeFromJsonFile(filename fileName:String,id: Int){
+        var favouriteList: [Movie] = loadJsonData(filename: fileName)
+        let index = favouriteList.firstIndex(where: { movie in movie.id == id})
+        favouriteList.remove(at: index!)
+        do{
+            let jsonEncoder = JSONEncoder()
+            let jsonData = try jsonEncoder.encode(favouriteList)
+            saveJsonToFile(filename: fileName, data: jsonData)
+            self.delegate?.didRemoveMovie()
+        }catch let error{
+            print(error.localizedDescription)
+        }
+    }
+    
     func saveJsonToFile(filename fileName:String, data: Data){
         let documentsUrl = getDocumentsDirectory()
         let destFile = documentsUrl.appendingPathComponent(fileName).appendingPathExtension("json")
@@ -78,6 +107,18 @@ class MovieFileSaver{
             }
         }else{
             fatalError("Cannot access the filename \(fileName)")
+        }
+    }
+    
+    func loadJsonData(filename fileName: String) -> [Movie]{
+        let fileToReadUrl = getDocumentsDirectory().appendingPathComponent(fileName).appendingPathExtension("json")
+        do{
+            let data = try Data(contentsOf: fileToReadUrl)
+            let decoder = JSONDecoder()
+            let decoded = try decoder.decode([Movie].self, from: data)
+            return decoded
+        }catch let error{
+            fatalError(error.localizedDescription)
         }
     }
 }
