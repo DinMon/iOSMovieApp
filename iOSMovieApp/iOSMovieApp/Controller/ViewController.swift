@@ -10,6 +10,8 @@ import UIKit
 import Foundation
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MoviesControllerDelegate {
+   
+    
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -87,6 +89,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         self.movies = data
         self.filteredMovies = data
+    }
+    
+    func didFetchMovie(data: MovieDetail) {
+        // Do not use movie detail
     }
     
     // MARK :- UIRefreshControl

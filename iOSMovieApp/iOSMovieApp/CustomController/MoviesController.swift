@@ -10,8 +10,8 @@ import Foundation
 
 protocol MoviesControllerDelegate{
     func didFetchMovies(data: [Movie])
+    func didFetchMovie(data: MovieDetail)
 }
-
 
 /// Network Controller to fetch movie data from MovieDB API
 class MoviesController{
@@ -38,6 +38,31 @@ class MoviesController{
                             let decoded = try JSONDecoder().decode(MovieList.self, from: fdata)
                             self.movies = decoded.results
                             self.delegate?.didFetchMovies(data: self.movies)
+                        } catch {
+                            print(error)
+                        }
+                    }
+                }
+            }
+            task.resume()
+        }
+    }
+    
+    /// Fetch a single movie detail from an online API
+    ///
+    /// - Parameter url: API url of movies to fetch
+    public func fetchMovie(id: Int){
+        
+        let urlString = URL(string: "https://api.themoviedb.org/3/movie/\(String(id))?" + "&api_key=" + MoviesController.movieAPIKey + "&language=en-US&append_to_response=videos,credits")
+        if let url = urlString {
+            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+                if error != nil {
+                    print(error!)
+                } else {
+                    if let fdata = data {
+                        do{
+                            let decoded = try JSONDecoder().decode(MovieDetail.self, from: fdata)
+                            self.delegate?.didFetchMovie(data: decoded)
                         } catch {
                             print(error)
                         }

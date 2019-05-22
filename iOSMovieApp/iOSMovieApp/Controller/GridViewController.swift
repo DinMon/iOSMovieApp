@@ -9,6 +9,9 @@
 import UIKit
 
 class GridViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, MoviesControllerDelegate {
+    
+    
+    
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -50,6 +53,10 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
         self.movies = data
         self.filteredMovies = data
+    }
+    
+    func didFetchMovie(data: MovieDetail) {
+        // Do not use MovieDetail
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

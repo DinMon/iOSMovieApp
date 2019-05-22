@@ -56,7 +56,7 @@ struct Movie: Codable {
     var posterImageURLMedium: URL?
     var posterImageURLHigh: URL?
     var posterImageURLLow: URL?
-    
+
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         voteCount = try container.decodeIfPresent(Int.self, forKey: .voteCount)

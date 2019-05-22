@@ -8,14 +8,36 @@
 
 import UIKit
 
-class DetailViewController: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
-
+class DetailViewController: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, MoviesControllerDelegate {
+    
+    var movieController: MoviesController?
+    var movieId: Int?
+    var movieDetail: MovieDetail?
+    
+    // Header and ScrollView
     @IBOutlet weak var scrollView: UIScrollView!
-    
     @IBOutlet weak var imageView: UIImageView!
-    
     @IBOutlet weak var mainStackView: UIStackView!
     
+    // Section 1: Main Detail and Action
+    @IBOutlet weak var posterImage: UIImageView!
+    @IBOutlet weak var mainTitle: UILabel!
+    @IBOutlet weak var rating: UILabel!
+    @IBOutlet weak var runtime: UILabel!
+    
+    @IBOutlet weak var trailerBtn: UIButton!
+    @IBOutlet weak var bookBtn: UIButton!
+    @IBOutlet weak var favBtn: UIButton!
+    
+    // Section 2: Description and info
+    
+    @IBOutlet weak var genre: UILabel!
+    @IBOutlet weak var movieDesc: UILabel!
+    @IBOutlet weak var companyName: UILabel!
+    @IBOutlet weak var actors: UILabel!
+    @IBOutlet weak var countryName: UILabel!
+    
+    // Recommendations
     @IBOutlet weak var collectionView: UICollectionView!
     
     var recommendations = [Movie](){
@@ -26,14 +48,40 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
         }
     }
     
-    var movieId: Int?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         scrollView.contentInsetAdjustmentBehavior = .never
         // Do any additional setup after loading the view.
         print(movieId!)
+        
+        movieController = MoviesController()
+        movieController?.delegate = self
+        
+        movieController?.fetchMovie(id: movieId!)
+    }
+    
+    func updateUIMovieDetail(){
+        updateMainSection()
+        updateDetailSection()
+    }
+    
+    func updateMainSection(){
+        mainTitle!.text = movieDetail!.title
+        rating!.text = String(movieDetail!.voteAverage)
+        let minutes = movieDetail!.runtime
+        let time = (minutes / 60, (minutes % 60))
+        runtime!.text = String("\(time.0) h \(time.1)")
+        posterImage!.load(url: URL(string: MoviesController.imgBaseString + "w500" + movieDetail!.posterPath)!)
+        imageView!.load(url: URL(string: MoviesController.imgBaseString + "w500" + movieDetail!.backdropPath)!)
+    }
+    
+    func updateDetailSection(){
+        genre!.text = movieDetail!.genres.map{$0.name}.joined(separator: ",")
+        movieDesc!.text = movieDetail!.overview
+        companyName!.text = movieDetail!.productionCompanies.map{$0.name}.joined(separator: ", ")
+        actors!.text = movieDetail!.credits.cast.map{$0.name}[0..<5].joined(separator: ", ")
+        countryName!.text = movieDetail!.productionCountries.first?.name
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -64,4 +112,14 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
         return cell
     }
 
+    func didFetchMovies(data: [Movie]) {
+        // Do being use
+    }
+    
+    func didFetchMovie(data: MovieDetail) {
+        self.movieDetail = data
+        DispatchQueue.main.async {
+            self.updateUIMovieDetail()
+        }
+    }
 }
