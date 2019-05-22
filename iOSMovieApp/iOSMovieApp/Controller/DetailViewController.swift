@@ -8,13 +8,23 @@
 
 import UIKit
 
-class DetailViewController: UIViewController, UIScrollViewDelegate {
+class DetailViewController: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var mainStackView: UIStackView!
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    var recommendations = [Movie](){
+        didSet {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
     
     var movieId: Int?
     
@@ -35,6 +45,23 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         let gapBtwHeader :CGFloat = 18.0
         mainStackView.frame = CGRect(x: mainStackView.frame.origin.x, y: height + gapBtwHeader, width: mainStackView.frame.width, height: mainStackView.frame.height)
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recommendCell", for: indexPath) as! RecommendationCollectionViewCell
+        
+        //let movie: Movie = recommendations[indexPath.row]
+        
+        //cell.movieImage!.load(url: movie.posterImageURLMedium!)
+        
+        cell.recommendImage!.image = UIImage(named: "poster")
+        cell.movieTitle!.text = "Dinys"
+        
+        return cell
     }
 
 }
