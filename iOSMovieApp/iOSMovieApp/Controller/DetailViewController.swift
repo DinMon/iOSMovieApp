@@ -25,10 +25,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
     @IBOutlet weak var rating: UILabel!
     @IBOutlet weak var runtime: UILabel!
     
-    @IBOutlet weak var trailerBtn: UIButton!
-    @IBOutlet weak var bookBtn: UIButton!
-    @IBOutlet weak var favBtn: UIButton!
-    
     // Section 2: Description and info
     
     @IBOutlet weak var genre: UILabel!
@@ -40,7 +36,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
     // Recommendations
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var recommendations = [Movie](){
+    var recommendations = [RecommendationsResult](){
         didSet {
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
@@ -61,27 +57,40 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
         movieController?.fetchMovie(id: movieId!)
     }
     
+    @IBAction func loadTrailer(_ sender: Any) {
+        let myUrl = "https://www.youtube.com/watch?v=\()"
+        if let url = URL(string: "\(myUrl)"), !url.absoluteString.isEmpty {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+        
+        // or outside scope use this
+        guard let url = URL(string: "\(myUrl)"), !url.absoluteString.isEmpty else {
+            return
+        }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+    
     func updateUIMovieDetail(){
         updateMainSection()
         updateDetailSection()
     }
     
     func updateMainSection(){
-        mainTitle!.text = movieDetail!.title
-        rating!.text = String(movieDetail!.voteAverage)
-        let minutes = movieDetail!.runtime
+        mainTitle!.text = movieDetail!.title!
+        rating!.text = String(movieDetail!.voteAverage!)
+        let minutes = movieDetail!.runtime!
         let time = (minutes / 60, (minutes % 60))
         runtime!.text = String("\(time.0) h \(time.1)")
-        posterImage!.load(url: URL(string: MoviesController.imgBaseString + "w500" + movieDetail!.posterPath)!)
-        imageView!.load(url: URL(string: MoviesController.imgBaseString + "w500" + movieDetail!.backdropPath)!)
+        posterImage!.load(url: URL(string: MoviesController.imgBaseString + "w500" + movieDetail!.posterPath!)!)
+        imageView!.load(url: URL(string: MoviesController.imgBaseString + "w500" + movieDetail!.backdropPath!)!)
     }
     
     func updateDetailSection(){
-        genre!.text = movieDetail!.genres.map{$0.name}.joined(separator: ",")
+        genre!.text = movieDetail!.genres!.map{$0.name}.joined(separator: ",")
         movieDesc!.text = movieDetail!.overview
-        companyName!.text = movieDetail!.productionCompanies.map{$0.name}.joined(separator: ", ")
-        actors!.text = movieDetail!.credits.cast.map{$0.name}[0..<5].joined(separator: ", ")
-        countryName!.text = movieDetail!.productionCountries.first?.name
+        companyName!.text = movieDetail!.productionCompanies!.map{$0.name}[0..<2].joined(separator: ", ")
+        actors!.text = movieDetail!.credits!.cast.map{$0.name}[0..<2].joined(separator: ", ")
+        countryName!.text = movieDetail!.productionCountries!.first?.name
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -96,18 +105,16 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return recommendations.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recommendCell", for: indexPath) as! RecommendationCollectionViewCell
         
-        //let movie: Movie = recommendations[indexPath.row]
+        let movie: RecommendationsResult = recommendations[indexPath.row]
         
-        //cell.movieImage!.load(url: movie.posterImageURLMedium!)
-        
-        cell.recommendImage!.image = UIImage(named: "poster")
-        cell.movieTitle!.text = "Dinys"
+        cell.recommendImage!.load(url: URL(string: MoviesController.imgBaseString + "w500" + movie.posterPath)!)
+        cell.movieTitle!.text = movie.title
         
         return cell
     }
@@ -118,6 +125,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
     
     func didFetchMovie(data: MovieDetail) {
         self.movieDetail = data
+        self.recommendations = (data.recommendations?.results)!
         DispatchQueue.main.async {
             self.updateUIMovieDetail()
         }

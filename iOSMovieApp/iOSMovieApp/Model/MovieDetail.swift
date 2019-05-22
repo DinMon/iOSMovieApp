@@ -10,37 +10,34 @@ import Foundation
 
 // MARK: - Movie
 struct MovieDetail: Codable {
-    let adult: Bool
-    let backdropPath: String
-    let belongsToCollection: BelongsToCollection
-    let budget: Int
-    let genres: [Genre]
-    let homepage: String
-    let id: Int
-    let imdbID: String
-    let originalLanguage: OriginalLanguage
-    let originalTitle, overview: String
-    let popularity: Double
-    let posterPath: String
-    let productionCompanies: [ProductionCompany]
-    let productionCountries: [ProductionCountry]
-    let releaseDate: String
-    let revenue, runtime: Int
-    let spokenLanguages: [SpokenLanguage]
-    let status, tagline, title: String
-    let video: Bool
-    let voteAverage: Double
-    let voteCount: Int
-    let videos: Videos
-    let credits: Credits
+    let adult: Bool?
+    let backdropPath: String?
+    let budget: Int?
+    let genres: [Genre]?
+    let homepage: String?
+    let id: Int?
+    let imdbID: String?
+    let originalTitle, overview: String?
+    let popularity: Double?
+    let posterPath: String?
+    let productionCompanies: [ProductionCompany]?
+    let productionCountries: [ProductionCountry]?
+    let releaseDate: String?
+    let revenue, runtime: Int?
+    let spokenLanguages: [SpokenLanguage]?
+    let status, tagline, title: String?
+    let video: Bool?
+    let voteAverage: Double?
+    let voteCount: Int?
+    let videos: Videos?
+    let credits: Credits?
+    let recommendations: Recommendations?
     
     enum CodingKeys: String, CodingKey {
         case adult
         case backdropPath = "backdrop_path"
-        case belongsToCollection = "belongs_to_collection"
         case budget, genres, homepage, id
         case imdbID = "imdb_id"
-        case originalLanguage = "original_language"
         case originalTitle = "original_title"
         case overview, popularity
         case posterPath = "poster_path"
@@ -52,7 +49,7 @@ struct MovieDetail: Codable {
         case status, tagline, title, video
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
-        case videos, credits
+        case videos, credits, recommendations
     }
     
     func encode(to encoder: Encoder) throws {
@@ -60,18 +57,6 @@ struct MovieDetail: Codable {
         try container.encode(id, forKey: .id)
         try container.encode(title, forKey: .title)
         try container.encode(posterPath, forKey: .posterPath)
-    }
-}
-
-// MARK: - BelongsToCollection
-struct BelongsToCollection: Codable {
-    let id: Int
-    let name, posterPath, backdropPath: String
-    
-    enum CodingKeys: String, CodingKey {
-        case id, name
-        case posterPath = "poster_path"
-        case backdropPath = "backdrop_path"
     }
 }
 
@@ -113,6 +98,48 @@ struct Crew: Codable {
     }
 }
 
+// MARK: - Recommendations
+struct Recommendations: Codable {
+    let page: Int
+    let results: [RecommendationsResult]
+    let totalPages, totalResults: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case page, results
+        case totalPages = "total_pages"
+        case totalResults = "total_results"
+    }
+}
+
+// MARK: - RecommendationsResult
+struct RecommendationsResult: Codable {
+    let id: Int
+    let video: Bool
+    let voteCount: Int
+    let voteAverage: Double
+    let title, releaseDate: String
+    let originalTitle: String
+    let genreIDS: [Int]
+    let backdropPath: String
+    let adult: Bool
+    let overview, posterPath: String
+    let popularity: Double
+    
+    enum CodingKeys: String, CodingKey {
+        case id, video
+        case voteCount = "vote_count"
+        case voteAverage = "vote_average"
+        case title
+        case releaseDate = "release_date"
+        case originalTitle = "original_title"
+        case genreIDS = "genre_ids"
+        case backdropPath = "backdrop_path"
+        case adult, overview
+        case posterPath = "poster_path"
+        case popularity
+    }
+}
+
 // MARK: - Genre
 struct Genre: Codable {
     let id: Int
@@ -135,25 +162,18 @@ struct ProductionCompany: Codable {
 
 // MARK: - ProductionCountry
 struct ProductionCountry: Codable {
-    let iso3166_1: ISO3166_1
     let name: String
     
     enum CodingKeys: String, CodingKey {
-        case iso3166_1 = "iso_3166_1"
         case name
     }
 }
 
-enum ISO3166_1: String, Codable {
-    case us = "US"
-}
-
 // MARK: - SpokenLanguage
 struct SpokenLanguage: Codable {
-    let iso639_1, name: String
+    let name: String
     
     enum CodingKeys: String, CodingKey {
-        case iso639_1 = "iso_639_1"
         case name
     }
 }
@@ -166,8 +186,6 @@ struct Videos: Codable {
 // MARK: - Result
 struct Result: Codable {
     let id: String
-    let iso639_1: OriginalLanguage
-    let iso3166_1: ISO3166_1
     let key, name: String
     let site: Site
     let size: Int
@@ -175,8 +193,6 @@ struct Result: Codable {
     
     enum CodingKeys: String, CodingKey {
         case id
-        case iso639_1 = "iso_639_1"
-        case iso3166_1 = "iso_3166_1"
         case key, name, site, size, type
     }
 }

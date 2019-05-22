@@ -53,7 +53,7 @@ class MoviesController{
     /// - Parameter url: API url of movies to fetch
     public func fetchMovie(id: Int){
         
-        let urlString = URL(string: "https://api.themoviedb.org/3/movie/\(String(id))?" + "&api_key=" + MoviesController.movieAPIKey + "&language=en-US&append_to_response=videos,credits")
+        let urlString = URL(string: "https://api.themoviedb.org/3/movie/\(String(id))?" + "&api_key=" + MoviesController.movieAPIKey + "&language=en-US&append_to_response=videos,credits,recommendations")
         if let url = urlString {
             let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
                 if error != nil {
