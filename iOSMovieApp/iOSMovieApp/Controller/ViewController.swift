@@ -61,6 +61,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "detailMovie", sender: indexPath.row)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let detailController: DetailViewController = segue.destination as? DetailViewController{
+            if let index = sender as? Int{
+                detailController.movieId = movies[index].id
+            }
+        }
+    }
+    
     // MARK :- Fetch from Network controller
     @objc func fetchData(endpoint: String){
         MBProgressHUD.showAdded(to: self.view, animated: true)
