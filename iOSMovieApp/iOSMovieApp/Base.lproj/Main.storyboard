@@ -446,6 +446,9 @@
                                                                         <integer key="value" value="5"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <segue destination="M1A-NF-3hA" kind="show" identifier="booking" id="fJF-aL-4Fw"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ro9-rx-O9f">
                                                                 <rect key="frame" x="222" y="97" width="125" height="30"/>
@@ -730,6 +733,129 @@
             </objects>
             <point key="canvasLocation" x="1735.2" y="804.19790104947538"/>
         </scene>
+        <!--BookingViewController-->
+        <scene sceneID="7IV-UG-Xbh">
+            <objects>
+                <viewController title="BookingViewController" id="M1A-NF-3hA" customClass="BookingViewController" customModule="iOSMovieApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xf6-4n-uGC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ecY-zI-h8C">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="124"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Booking" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDB-cm-yQB">
+                                        <rect key="frame" x="20" y="68" width="189" height="48"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="35"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ito-Wc-dhJ">
+                                        <rect key="frame" x="20" y="33" width="39" height="27"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <state key="normal" title="&lt; Back">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Squ-Vg-9dn" kind="show" identifier="backToDetail" id="qTC-uE-xgK"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.5970470309" green="0.34166032079999997" blue="0.96041351559999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="MDB-cm-yQB" secondAttribute="trailing" constant="166" id="FM5-7a-2bJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="MDB-cm-yQB" secondAttribute="bottom" constant="8" id="J4t-qq-03L"/>
+                                    <constraint firstItem="MDB-cm-yQB" firstAttribute="top" secondItem="Ito-Wc-dhJ" secondAttribute="bottom" constant="8" id="Pv4-Kh-ccz"/>
+                                    <constraint firstAttribute="height" constant="124" id="VYa-Ur-TMc"/>
+                                    <constraint firstItem="MDB-cm-yQB" firstAttribute="leading" secondItem="ecY-zI-h8C" secondAttribute="leading" constant="20" id="hii-J6-knk"/>
+                                    <constraint firstItem="Ito-Wc-dhJ" firstAttribute="leading" secondItem="ecY-zI-h8C" secondAttribute="leading" constant="20" id="u07-Bn-BT7"/>
+                                    <constraint firstItem="Ito-Wc-dhJ" firstAttribute="top" secondItem="ecY-zI-h8C" secondAttribute="top" constant="33" id="wy5-Ej-Rj9"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search a theatre" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r05-Ym-UKO">
+                                <rect key="frame" x="16" y="144" width="343" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Gri-nc-7SK"/>
+                                    <constraint firstAttribute="width" constant="343" id="xGP-kc-a61"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9Oi-gh-uuc">
+                                <rect key="frame" x="33" y="200" width="309" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="8rS-3B-Y6m"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </mapView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Mn1-pE-WvA">
+                                <rect key="frame" x="0.0" y="468" width="375" height="180"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o6y-gA-CQt">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XeH-bC-GTm">
+                                                <rect key="frame" x="17" y="23" width="29.5" height="42"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="vCu-uw-tnD">
+                                                <rect key="frame" x="125" y="30" width="215" height="29"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <segments>
+                                                    <segment title="Thu"/>
+                                                    <segment title="Fri"/>
+                                                    <segment title="Sat"/>
+                                                    <segment title="Sun"/>
+                                                </segments>
+                                            </segmentedControl>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="XeH-bC-GTm" firstAttribute="top" secondItem="o6y-gA-CQt" secondAttribute="top" constant="23" id="DMG-Lc-IG9"/>
+                                            <constraint firstItem="XeH-bC-GTm" firstAttribute="leading" secondItem="o6y-gA-CQt" secondAttribute="leading" constant="17" id="UZd-lh-AIo"/>
+                                            <constraint firstAttribute="bottom" secondItem="XeH-bC-GTm" secondAttribute="bottom" constant="24.5" id="q8n-TQ-bf6"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tnG-ng-c0N">
+                                        <rect key="frame" x="0.0" y="90.5" width="375" height="89.5"/>
+                                        <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="CnX-gP-vae"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ecY-zI-h8C" firstAttribute="leading" secondItem="5U0-0V-j5o" secondAttribute="leading" id="23F-0L-xMX"/>
+                            <constraint firstItem="9Oi-gh-uuc" firstAttribute="top" secondItem="r05-Ym-UKO" secondAttribute="bottom" constant="16" id="6E0-MY-kqc"/>
+                            <constraint firstItem="9Oi-gh-uuc" firstAttribute="centerX" secondItem="Xf6-4n-uGC" secondAttribute="centerX" id="9mE-YY-P4O"/>
+                            <constraint firstItem="Mn1-pE-WvA" firstAttribute="leading" secondItem="5U0-0V-j5o" secondAttribute="leading" id="Bnx-nc-tmL"/>
+                            <constraint firstItem="5U0-0V-j5o" firstAttribute="trailing" secondItem="9Oi-gh-uuc" secondAttribute="trailing" constant="33" id="Oh9-i4-8zg"/>
+                            <constraint firstItem="ecY-zI-h8C" firstAttribute="trailing" secondItem="5U0-0V-j5o" secondAttribute="trailing" id="PaT-v7-siN"/>
+                            <constraint firstItem="r05-Ym-UKO" firstAttribute="top" secondItem="ecY-zI-h8C" secondAttribute="bottom" constant="20" id="UeX-fN-QFd"/>
+                            <constraint firstItem="ecY-zI-h8C" firstAttribute="top" secondItem="Xf6-4n-uGC" secondAttribute="top" id="W68-as-uHg"/>
+                            <constraint firstAttribute="trailing" secondItem="Mn1-pE-WvA" secondAttribute="trailing" id="WK6-YB-acy"/>
+                            <constraint firstItem="r05-Ym-UKO" firstAttribute="centerX" secondItem="Xf6-4n-uGC" secondAttribute="centerX" id="Xka-Ry-z54"/>
+                            <constraint firstItem="Mn1-pE-WvA" firstAttribute="top" secondItem="9Oi-gh-uuc" secondAttribute="bottom" constant="18" id="qKG-X6-z3B"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5U0-0V-j5o"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Booking" id="zwz-hG-BLI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vnB-Oa-G3k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3125.5999999999999" y="596.85157421289364"/>
+        </scene>
         <!--TheatreViewController-->
         <scene sceneID="Ay8-W0-O2J">
             <objects>
@@ -938,5 +1064,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="QmD-5a-Vc2"/>
+        <segue reference="qTC-uE-xgK"/>
     </inferredMetricsTieBreakers>
 </document>

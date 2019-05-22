@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9F1A1CD42295A77700BD48D2 /* FavouriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A1CD32295A77700BD48D2 /* FavouriteController.swift */; };
+		9F1A1CD62295C91C00BD48D2 /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A1CD52295C91C00BD48D2 /* BookingViewController.swift */; };
 		9F23489622928F4E008DE1FA /* MoviesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F23489522928F4E008DE1FA /* MoviesController.swift */; };
 		9F23489822929256008DE1FA /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F23489722929256008DE1FA /* Movie.swift */; };
 		9F3DD4ED229566DC0089AC3B /* RecommendationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3DD4EC229566DC0089AC3B /* RecommendationCollectionViewCell.swift */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		9F1A1CD32295A77700BD48D2 /* FavouriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteController.swift; sourceTree = "<group>"; };
+		9F1A1CD52295C91C00BD48D2 /* BookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
 		9F23489522928F4E008DE1FA /* MoviesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesController.swift; sourceTree = "<group>"; };
 		9F23489722929256008DE1FA /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		9F3DD4EC229566DC0089AC3B /* RecommendationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				9FBEC0812294332D0088FB0D /* TheatreViewController.swift */,
 				9FE6BCF9229442D700E08E4C /* FavouriteViewController.swift */,
 				9FC0895F22950AC500CE70F2 /* DetailViewController.swift */,
+				9F1A1CD52295C91C00BD48D2 /* BookingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				9FE6BCFC2294430100E08E4C /* RemoveMovieTableViewCell.swift in Sources */,
 				9F1A1CD42295A77700BD48D2 /* FavouriteController.swift in Sources */,
 				9F23489822929256008DE1FA /* Movie.swift in Sources */,
+				9F1A1CD62295C91C00BD48D2 /* BookingViewController.swift in Sources */,
 				9F23489622928F4E008DE1FA /* MoviesController.swift in Sources */,
 				9F925BA12293D3A800663C89 /* MovieCollectionViewCell.swift in Sources */,
 				9F3DD4ED229566DC0089AC3B /* RecommendationCollectionViewCell.swift in Sources */,
