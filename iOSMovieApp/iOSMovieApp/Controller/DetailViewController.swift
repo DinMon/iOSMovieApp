@@ -58,7 +58,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
     }
     
     @IBAction func loadTrailer(_ sender: Any) {
-        let myUrl = "https://www.youtube.com/watch?v=\()"
+        let myUrl = "https://www.youtube.com/watch?v=\(String(describing: movieDetail!.videos!.results.first!.key))"
+        print(myUrl)
         if let url = URL(string: "\(myUrl)"), !url.absoluteString.isEmpty {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
