@@ -63,6 +63,12 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let bookingVC: BookingViewController = segue.destination as? BookingViewController{
+            bookingVC.movieId = movieId!
+        }
+    }
+    
     @IBAction func loadTrailer(_ sender: Any) {
         let myUrl = "https://www.youtube.com/watch?v=\(String(describing: movieDetail!.videos!.results.first!.key))"
         print(myUrl)
@@ -92,8 +98,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
                 print("Cannot remove movie to favourite")
             }
         }
-        
-        
+    }
+    
+    @IBAction func bookMovie(_ sender: Any) {
+        performSegue(withIdentifier: "booking", sender: self)
     }
     
     func updateUIMovieDetail(){
