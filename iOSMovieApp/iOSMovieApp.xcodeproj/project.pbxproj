@@ -24,6 +24,17 @@
 		9F925BA12293D3A800663C89 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F925BA02293D3A800663C89 /* MovieCollectionViewCell.swift */; };
 		9F925BA32293D79700663C89 /* TopRatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F925BA22293D79700663C89 /* TopRatedViewController.swift */; };
 		9F925BA5229410C000663C89 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F925BA4229410C000663C89 /* GridViewController.swift */; };
+		9F9C9AB52296B2D50032DA37 /* FIRAnalyticsConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F9C9AB42296B2D50032DA37 /* FIRAnalyticsConnector.framework */; };
+		9F9C9AB72296B2DE0032DA37 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F9C9AB62296B2DE0032DA37 /* FirebaseAnalytics.framework */; };
+		9F9C9ABE2296B2EF0032DA37 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F9C9AB82296B2EE0032DA37 /* GoogleUtilities.framework */; };
+		9F9C9ABF2296B2EF0032DA37 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F9C9AB92296B2EE0032DA37 /* FirebaseCore.framework */; };
+		9F9C9AC02296B2EF0032DA37 /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F9C9ABA2296B2EE0032DA37 /* FirebaseCoreDiagnostics.framework */; };
+		9F9C9AC12296B2EF0032DA37 /* GoogleAppMeasurement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F9C9ABB2296B2EE0032DA37 /* GoogleAppMeasurement.framework */; };
+		9F9C9AC22296B2EF0032DA37 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F9C9ABC2296B2EF0032DA37 /* nanopb.framework */; };
+		9F9C9AC32296B2EF0032DA37 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F9C9ABD2296B2EF0032DA37 /* FirebaseInstanceID.framework */; };
+		9F9C9AC52296B3250032DA37 /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F9C9AC42296B3250032DA37 /* FirebaseDatabase.framework */; };
+		9F9C9AC72296B32A0032DA37 /* leveldb-library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F9C9AC62296B32A0032DA37 /* leveldb-library.framework */; };
+		9F9C9ACF2296BA2C0032DA37 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F9C9ACE2296BA2C0032DA37 /* GoogleService-Info.plist */; };
 		9FBEC0822294332D0088FB0D /* TheatreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBEC0812294332D0088FB0D /* TheatreViewController.swift */; };
 		9FC0896022950AC500CE70F2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC0895F22950AC500CE70F2 /* DetailViewController.swift */; };
 		9FE6BCFA229442D700E08E4C /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE6BCF9229442D700E08E4C /* FavouriteViewController.swift */; };
@@ -77,6 +88,19 @@
 		9F925BA02293D3A800663C89 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		9F925BA22293D79700663C89 /* TopRatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedViewController.swift; sourceTree = "<group>"; };
 		9F925BA4229410C000663C89 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
+		9F9C9AB42296B2D50032DA37 /* FIRAnalyticsConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FIRAnalyticsConnector.framework; sourceTree = "<group>"; };
+		9F9C9AB62296B2DE0032DA37 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		9F9C9AB82296B2EE0032DA37 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = "<group>"; };
+		9F9C9AB92296B2EE0032DA37 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = "<group>"; };
+		9F9C9ABA2296B2EE0032DA37 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = "<group>"; };
+		9F9C9ABB2296B2EE0032DA37 /* GoogleAppMeasurement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleAppMeasurement.framework; sourceTree = "<group>"; };
+		9F9C9ABC2296B2EF0032DA37 /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = nanopb.framework; sourceTree = "<group>"; };
+		9F9C9ABD2296B2EF0032DA37 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		9F9C9AC42296B3250032DA37 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseDatabase.framework; sourceTree = "<group>"; };
+		9F9C9AC62296B32A0032DA37 /* leveldb-library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "leveldb-library.framework"; sourceTree = "<group>"; };
+		9F9C9AC82296B4310032DA37 /* Firebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
+		9F9C9AC92296B4670032DA37 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		9F9C9ACE2296BA2C0032DA37 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9FBEC0812294332D0088FB0D /* TheatreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheatreViewController.swift; sourceTree = "<group>"; };
 		9FC0895F22950AC500CE70F2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9FE6BCF9229442D700E08E4C /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +120,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F9C9AC52296B3250032DA37 /* FirebaseDatabase.framework in Frameworks */,
+				9F9C9ABF2296B2EF0032DA37 /* FirebaseCore.framework in Frameworks */,
+				9F9C9ABE2296B2EF0032DA37 /* GoogleUtilities.framework in Frameworks */,
+				9F9C9AC12296B2EF0032DA37 /* GoogleAppMeasurement.framework in Frameworks */,
+				9F9C9AC32296B2EF0032DA37 /* FirebaseInstanceID.framework in Frameworks */,
+				9F9C9AC22296B2EF0032DA37 /* nanopb.framework in Frameworks */,
+				9F9C9AC02296B2EF0032DA37 /* FirebaseCoreDiagnostics.framework in Frameworks */,
+				9F9C9AB72296B2DE0032DA37 /* FirebaseAnalytics.framework in Frameworks */,
+				9F9C9AB52296B2D50032DA37 /* FIRAnalyticsConnector.framework in Frameworks */,
+				9F9C9AC72296B32A0032DA37 /* leveldb-library.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +210,18 @@
 		9F4DA26622926DE800E7AE75 /* iOSMovieApp */ = {
 			isa = PBXGroup;
 			children = (
+				9F9C9AC92296B4670032DA37 /* module.modulemap */,
+				9F9C9AC82296B4310032DA37 /* Firebase.h */,
+				9F9C9AC62296B32A0032DA37 /* leveldb-library.framework */,
+				9F9C9AC42296B3250032DA37 /* FirebaseDatabase.framework */,
+				9F9C9ABC2296B2EF0032DA37 /* nanopb.framework */,
+				9F9C9AB82296B2EE0032DA37 /* GoogleUtilities.framework */,
+				9F9C9ABB2296B2EE0032DA37 /* GoogleAppMeasurement.framework */,
+				9F9C9ABD2296B2EF0032DA37 /* FirebaseInstanceID.framework */,
+				9F9C9ABA2296B2EE0032DA37 /* FirebaseCoreDiagnostics.framework */,
+				9F9C9AB92296B2EE0032DA37 /* FirebaseCore.framework */,
+				9F9C9AB62296B2DE0032DA37 /* FirebaseAnalytics.framework */,
+				9F9C9AB42296B2D50032DA37 /* FIRAnalyticsConnector.framework */,
 				9F70BB6222931F2D00F5D0C9 /* Views */,
 				9F23489422928F12008DE1FA /* Model */,
 				9F23489322928F0A008DE1FA /* Controller */,
@@ -185,6 +231,7 @@
 				9F4DA26E22926DEA00E7AE75 /* Assets.xcassets */,
 				9F4DA27022926DEA00E7AE75 /* LaunchScreen.storyboard */,
 				9F4DA27322926DEA00E7AE75 /* Info.plist */,
+				9F9C9ACE2296BA2C0032DA37 /* GoogleService-Info.plist */,
 				9FE6BCFF2294478B00E08E4C /* movies.json */,
 			);
 			path = iOSMovieApp;
@@ -336,6 +383,7 @@
 			files = (
 				9F4DA27222926DEA00E7AE75 /* LaunchScreen.storyboard in Resources */,
 				9FE6BD002294478B00E08E4C /* movies.json in Resources */,
+				9F9C9ACF2296BA2C0032DA37 /* GoogleService-Info.plist in Resources */,
 				9F4DA26F22926DEA00E7AE75 /* Assets.xcassets in Resources */,
 				9F4DA26D22926DE800E7AE75 /* Main.storyboard in Resources */,
 			);
@@ -559,17 +607,24 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iOSMovieApp",
+					"$(PROJECT_DIR)/iOSMovieApp/CustomController",
+				);
 				INFOPLIST_FILE = iOSMovieApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = din.mon.iOSMovieApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MBProgressHUD/iOSMovieApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/iOSMovieApp";
 			};
 			name = Debug;
 		};
@@ -579,16 +634,23 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iOSMovieApp",
+					"$(PROJECT_DIR)/iOSMovieApp/CustomController",
+				);
 				INFOPLIST_FILE = iOSMovieApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = din.mon.iOSMovieApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MBProgressHUD/iOSMovieApp-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/iOSMovieApp";
 			};
 			name = Release;
 		};
