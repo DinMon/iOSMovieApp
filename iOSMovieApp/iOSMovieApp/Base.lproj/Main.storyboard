@@ -1003,6 +1003,7 @@
                                         </state>
                                         <connections>
                                             <action selector="backToDetail:" destination="M1A-NF-3hA" eventType="touchUpInside" id="PA3-Gj-PjN"/>
+                                            <segue destination="M1A-NF-3hA" kind="show" id="3Lm-A3-ZJ3"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1017,9 +1018,257 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n9o-Lf-fC7">
                                 <rect key="frame" x="16" y="208" width="343" height="367"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mB-pg-5jF">
+                                        <rect key="frame" x="17" y="8" width="36" height="36"/>
+                                        <state key="normal" image="baseline_event_seat_black_18dp"/>
+                                        <connections>
+                                            <action selector="seatTapped:" destination="FZk-7H-1tb" eventType="touchUpInside" id="ewF-rI-UrJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7T6-ky-Uve">
+                                        <rect key="frame" x="61" y="8" width="36" height="36"/>
+                                        <state key="normal" image="baseline_event_seat_black_18dp"/>
+                                        <connections>
+                                            <action selector="seatTapped:" destination="FZk-7H-1tb" eventType="touchUpInside" id="88T-pv-88y"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RjV-XY-9gD">
+                                        <rect key="frame" x="105" y="8" width="36" height="36"/>
+                                        <state key="normal" image="baseline_event_seat_black_18dp"/>
+                                        <connections>
+                                            <action selector="seatTapped:" destination="FZk-7H-1tb" eventType="touchUpInside" id="Lk2-M5-ivJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSR-dW-qy8">
+                                        <rect key="frame" x="149" y="8" width="36" height="36"/>
+                                        <state key="normal" image="baseline_event_seat_black_18dp"/>
+                                        <connections>
+                                            <action selector="seatTapped:" destination="FZk-7H-1tb" eventType="touchUpInside" id="3Ym-KQ-h8Y"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FFV-8A-CUg">
+                                        <rect key="frame" x="193" y="8" width="36" height="36"/>
+                                        <state key="normal" image="baseline_event_seat_black_18dp"/>
+                                        <connections>
+                                            <action selector="seatTapped:" destination="FZk-7H-1tb" eventType="touchUpInside" id="xf5-KT-6ff"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0H-7h-jPR">
+                                        <rect key="frame" x="237" y="8" width="36" height="36"/>
+                                        <state key="normal" image="baseline_event_seat_black_18dp"/>
+                                        <connections>
+                                            <action selector="seatTapped:" destination="FZk-7H-1tb" eventType="touchUpInside" id="FCF-YT-LTA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6RX-zq-3kr">
+                                        <rect key="frame" x="281" y="8" width="36" height="36"/>
+                                        <state key="normal" image="baseline_event_seat_black_18dp"/>
+                                        <connections>
+                                            <action selector="seatTapped:" destination="FZk-7H-1tb" eventType="touchUpInside" id="csW-yY-rxi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oDS-hI-bCT">
+                                        <rect key="frame" x="17" y="52" width="36" height="36"/>
+                                        <state key="normal" image="baseline_event_seat_black_18dp"/>
+                                        <connections>
+                                            <action selector="seatTapped:" destination="FZk-7H-1tb" eventType="touchUpInside" id="eID-F5-dYf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HfD-l5-iOf">
+                                        <rect key="frame" x="61" y="52" width="36" height="36"/>
+                                        <state key="normal" image="baseline_event_seat_black_18dp"/>
+                                        <connections>
+                                            <action selector="seatTapped:" destination="FZk-7H-1tb" eventType="touchUpInside" id="ANw-Ec-qcP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSG-Tw-WTx">
+                                        <rect key="frame" x="105" y="52" width="36" height="36"/>
+                                        <state key="normal" image="baseline_event_seat_black_18dp"/>
+                                        <connections>
+                                            <action selector="seatTapped:" destination="FZk-7H-1tb" eventType="touchUpInside" id="rwF-DQ-Sex"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uCP-Br-OKB">
+                                        <rect key="frame" x="149" y="52" width="36" height="36"/>
+                                        <state key="normal" image="baseline_event_seat_black_18dp"/>
+                                        <connections>
+                                            <action selector="seatTapped:" destination="FZk-7H-1tb" eventType="touchUpInside" id="rXu-eF-CoH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMD-bP-oJb">
+                                        <rect key="frame" x="193" y="52" width="36" height="36"/>
+                                        <state key="normal" image="baseline_event_seat_black_18dp"/>
+                                        <connections>
+                                            <action selector="seatTapped:" destination="FZk-7H-1tb" eventType="touchUpInside" id="kQv-VN-prn"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZB-D9-HPq">
+                                        <rect key="frame" x="237" y="52" width="36" height="36"/>
+                                        <state key="normal" image="baseline_event_seat_black_18dp"/>
+                                        <connections>
+                                            <action selector="seatTapped:" destination="FZk-7H-1tb" eventType="touchUpInside" id="KaM-0t-lLU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zYJ-DP-GsO">
+                                        <rect key="frame" x="281" y="52" width="36" height="36"/>
+                                        <state key="normal" image="baseline_event_seat_black_18dp"/>
+                                        <connections>
+                                            <action selector="seatTapped:" destination="FZk-7H-1tb" eventType="touchUpInside" id="jnx-xj-8Km"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YZl-TV-suB">
+                                        <rect key="frame" x="17" y="96" width="36" height="36"/>
+                                        <state key="normal" image="baseline_event_seat_black_18dp"/>
+                                        <connections>
+                                            <action selector="seatTapped:" destination="FZk-7H-1tb" eventType="touchUpInside" id="ayz-jQ-KCF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uFb-mg-JLN">
+                                        <rect key="frame" x="61" y="96" width="36" height="36"/>
+                                        <state key="normal" image="baseline_event_seat_black_18dp"/>
+                                        <connections>
+                                            <action selector="seatTapped:" destination="FZk-7H-1tb" eventType="touchUpInside" id="xG7-aN-TSC"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="21" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="73J-Ds-D8J">
+                                        <rect key="frame" x="17" y="140" width="36" height="36"/>
+                                        <state key="normal" image="baseline_event_seat_black_18dp"/>
+                                        <connections>
+                                            <action selector="seatTapped:" destination="FZk-7H-1tb" eventType="touchUpInside" id="349-6B-LdR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="22" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEb-Ej-58f">
+                                        <rect key="frame" x="61" y="140" width="36" height="36"/>
+                                        <state key="normal" image="baseline_event_seat_black_18dp"/>
+                                        <connections>
+                                            <action selector="seatTapped:" destination="FZk-7H-1tb" eventType="touchUpInside" id="P4m-gV-giL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="23" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HbF-Jo-cit">
+                                        <rect key="frame" x="237" y="140" width="36" height="36"/>
+                                        <state key="normal" image="baseline_event_seat_black_18dp"/>
+                                        <connections>
+                                            <action selector="seatTapped:" destination="FZk-7H-1tb" eventType="touchUpInside" id="ema-tQ-Win"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="24" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wyn-D3-KlN">
+                                        <rect key="frame" x="281" y="140" width="36" height="36"/>
+                                        <state key="normal" image="baseline_event_seat_black_18dp"/>
+                                        <connections>
+                                            <action selector="seatTapped:" destination="FZk-7H-1tb" eventType="touchUpInside" id="JDN-1c-JFd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29V-yq-FXa">
+                                        <rect key="frame" x="105" y="96" width="36" height="36"/>
+                                        <state key="normal" image="baseline_event_seat_black_18dp"/>
+                                        <connections>
+                                            <action selector="seatTapped:" destination="FZk-7H-1tb" eventType="touchUpInside" id="SDR-jb-iGw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="17" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Kp-PQ-DCL">
+                                        <rect key="frame" x="149" y="96" width="36" height="36"/>
+                                        <state key="normal" image="baseline_event_seat_black_18dp"/>
+                                        <connections>
+                                            <action selector="seatTapped:" destination="FZk-7H-1tb" eventType="touchUpInside" id="pqe-lI-ib5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="18" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qcz-5f-kd5">
+                                        <rect key="frame" x="193" y="96" width="36" height="36"/>
+                                        <state key="normal" image="baseline_event_seat_black_18dp"/>
+                                        <connections>
+                                            <action selector="seatTapped:" destination="FZk-7H-1tb" eventType="touchUpInside" id="izT-lN-iDp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="19" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JTH-r5-sdb">
+                                        <rect key="frame" x="237" y="96" width="36" height="36"/>
+                                        <state key="normal" image="baseline_event_seat_black_18dp"/>
+                                        <connections>
+                                            <action selector="seatTapped:" destination="FZk-7H-1tb" eventType="touchUpInside" id="tCr-h3-Am6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ro8-Oe-Ndo">
+                                        <rect key="frame" x="281" y="96" width="36" height="36"/>
+                                        <state key="normal" image="baseline_event_seat_black_18dp"/>
+                                        <connections>
+                                            <action selector="seatTapped:" destination="FZk-7H-1tb" eventType="touchUpInside" id="hzb-ch-vqX"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jaQ-kJ-SQN">
+                                        <rect key="frame" x="51.5" y="298" width="240" height="32"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Projector" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJr-Vl-8F5">
+                                                <rect key="frame" x="85" y="8" width="70" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="7GX-in-qjV"/>
+                                            <constraint firstAttribute="bottom" secondItem="ZJr-Vl-8F5" secondAttribute="bottom" constant="3" id="XJx-ZB-q3I"/>
+                                            <constraint firstAttribute="width" constant="240" id="jLG-A2-0vw"/>
+                                            <constraint firstItem="ZJr-Vl-8F5" firstAttribute="leading" secondItem="jaQ-kJ-SQN" secondAttribute="leading" constant="85" id="mzw-O2-btT"/>
+                                            <constraint firstItem="ZJr-Vl-8F5" firstAttribute="top" secondItem="jaQ-kJ-SQN" secondAttribute="top" constant="8" id="qqa-n7-DPh"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                 <constraints>
+                                    <constraint firstItem="cSR-dW-qy8" firstAttribute="top" secondItem="n9o-Lf-fC7" secondAttribute="top" constant="8" id="0SC-da-0Xe"/>
+                                    <constraint firstItem="ZMD-bP-oJb" firstAttribute="leading" secondItem="uCP-Br-OKB" secondAttribute="trailing" constant="8" id="18I-wh-8bM"/>
+                                    <constraint firstItem="Wyn-D3-KlN" firstAttribute="leading" secondItem="HbF-Jo-cit" secondAttribute="trailing" constant="8" id="2Ox-Hc-dm0"/>
+                                    <constraint firstItem="6Kp-PQ-DCL" firstAttribute="leading" secondItem="29V-yq-FXa" secondAttribute="trailing" constant="8" id="2wQ-FL-5vx"/>
+                                    <constraint firstItem="YZl-TV-suB" firstAttribute="top" secondItem="oDS-hI-bCT" secondAttribute="bottom" constant="8" id="3ei-db-TAe"/>
+                                    <constraint firstItem="FFV-8A-CUg" firstAttribute="top" secondItem="n9o-Lf-fC7" secondAttribute="top" constant="8" id="8Q7-VM-F0M"/>
+                                    <constraint firstItem="oDS-hI-bCT" firstAttribute="top" secondItem="7mB-pg-5jF" secondAttribute="bottom" constant="8" id="9It-Bc-9Yi"/>
+                                    <constraint firstItem="Wyn-D3-KlN" firstAttribute="top" secondItem="ro8-Oe-Ndo" secondAttribute="bottom" constant="8" id="AdE-ky-5HJ"/>
+                                    <constraint firstItem="LZB-D9-HPq" firstAttribute="leading" secondItem="ZMD-bP-oJb" secondAttribute="trailing" constant="8" id="BAB-cN-7pa"/>
+                                    <constraint firstItem="6Kp-PQ-DCL" firstAttribute="top" secondItem="uCP-Br-OKB" secondAttribute="bottom" constant="8" id="CZj-xY-GT6"/>
+                                    <constraint firstAttribute="bottom" secondItem="jaQ-kJ-SQN" secondAttribute="bottom" constant="37" id="CcG-Yi-Grv"/>
+                                    <constraint firstItem="GEb-Ej-58f" firstAttribute="top" secondItem="uFb-mg-JLN" secondAttribute="bottom" constant="8" id="Cu0-Sy-cqT"/>
+                                    <constraint firstItem="JTH-r5-sdb" firstAttribute="leading" secondItem="Qcz-5f-kd5" secondAttribute="trailing" constant="8" id="E67-B6-ULv"/>
+                                    <constraint firstItem="cSR-dW-qy8" firstAttribute="leading" secondItem="RjV-XY-9gD" secondAttribute="trailing" constant="8" id="EKy-du-TbF"/>
+                                    <constraint firstItem="zYJ-DP-GsO" firstAttribute="top" secondItem="6RX-zq-3kr" secondAttribute="bottom" constant="8" id="I2t-Uo-Sz9"/>
+                                    <constraint firstItem="YZl-TV-suB" firstAttribute="leading" secondItem="n9o-Lf-fC7" secondAttribute="leading" constant="17" id="IwG-ZZ-GPO"/>
+                                    <constraint firstItem="C0H-7h-jPR" firstAttribute="leading" secondItem="FFV-8A-CUg" secondAttribute="trailing" constant="8" id="Mw4-mH-N6C"/>
+                                    <constraint firstItem="29V-yq-FXa" firstAttribute="leading" secondItem="uFb-mg-JLN" secondAttribute="trailing" constant="8" id="OUh-kS-pvD"/>
+                                    <constraint firstItem="29V-yq-FXa" firstAttribute="top" secondItem="iSG-Tw-WTx" secondAttribute="bottom" constant="8" id="PDc-h0-YAl"/>
+                                    <constraint firstItem="RjV-XY-9gD" firstAttribute="top" secondItem="n9o-Lf-fC7" secondAttribute="top" constant="8" id="Pkn-8U-dkf"/>
+                                    <constraint firstItem="73J-Ds-D8J" firstAttribute="leading" secondItem="n9o-Lf-fC7" secondAttribute="leading" constant="17" id="Ua2-yd-sVH"/>
+                                    <constraint firstItem="uFb-mg-JLN" firstAttribute="top" secondItem="HfD-l5-iOf" secondAttribute="bottom" constant="8" id="W5G-MK-XbZ"/>
+                                    <constraint firstItem="6RX-zq-3kr" firstAttribute="leading" secondItem="C0H-7h-jPR" secondAttribute="trailing" constant="8" id="WCl-V8-2tQ"/>
+                                    <constraint firstItem="ZMD-bP-oJb" firstAttribute="top" secondItem="FFV-8A-CUg" secondAttribute="bottom" constant="8" id="WqT-hs-sFH"/>
+                                    <constraint firstItem="oDS-hI-bCT" firstAttribute="leading" secondItem="n9o-Lf-fC7" secondAttribute="leading" constant="17" id="Y0L-JK-S67"/>
+                                    <constraint firstItem="uCP-Br-OKB" firstAttribute="leading" secondItem="iSG-Tw-WTx" secondAttribute="trailing" constant="8" id="YqL-Xx-Hv8"/>
+                                    <constraint firstItem="7T6-ky-Uve" firstAttribute="top" secondItem="n9o-Lf-fC7" secondAttribute="top" constant="8" id="bDE-tv-FA2"/>
+                                    <constraint firstItem="ro8-Oe-Ndo" firstAttribute="leading" secondItem="JTH-r5-sdb" secondAttribute="trailing" constant="8" id="cbd-dP-6uN"/>
+                                    <constraint firstItem="LZB-D9-HPq" firstAttribute="top" secondItem="C0H-7h-jPR" secondAttribute="bottom" constant="8" id="cc4-rX-pBP"/>
+                                    <constraint firstItem="HfD-l5-iOf" firstAttribute="leading" secondItem="oDS-hI-bCT" secondAttribute="trailing" constant="8" id="ccC-rd-uff"/>
+                                    <constraint firstItem="ro8-Oe-Ndo" firstAttribute="top" secondItem="zYJ-DP-GsO" secondAttribute="bottom" constant="8" id="f92-y0-mWY"/>
+                                    <constraint firstItem="RjV-XY-9gD" firstAttribute="leading" secondItem="7T6-ky-Uve" secondAttribute="trailing" constant="8" id="fNp-8h-tmh"/>
+                                    <constraint firstItem="6RX-zq-3kr" firstAttribute="top" secondItem="n9o-Lf-fC7" secondAttribute="top" constant="8" id="fk5-9C-GnK"/>
+                                    <constraint firstItem="Qcz-5f-kd5" firstAttribute="top" secondItem="ZMD-bP-oJb" secondAttribute="bottom" constant="8" id="gEG-Gk-KtX"/>
+                                    <constraint firstItem="73J-Ds-D8J" firstAttribute="top" secondItem="YZl-TV-suB" secondAttribute="bottom" constant="8" id="gbh-3f-N0b"/>
+                                    <constraint firstItem="zYJ-DP-GsO" firstAttribute="leading" secondItem="LZB-D9-HPq" secondAttribute="trailing" constant="8" id="gsy-Nc-CbT"/>
+                                    <constraint firstItem="HbF-Jo-cit" firstAttribute="leading" secondItem="GEb-Ej-58f" secondAttribute="trailing" constant="140" id="hkA-zi-F2z"/>
+                                    <constraint firstItem="uCP-Br-OKB" firstAttribute="top" secondItem="cSR-dW-qy8" secondAttribute="bottom" constant="8" id="k7F-Ac-V8P"/>
+                                    <constraint firstItem="HbF-Jo-cit" firstAttribute="top" secondItem="JTH-r5-sdb" secondAttribute="bottom" constant="8" id="kiw-AY-tu2"/>
+                                    <constraint firstItem="JTH-r5-sdb" firstAttribute="top" secondItem="LZB-D9-HPq" secondAttribute="bottom" constant="8" id="klu-9J-Akw"/>
+                                    <constraint firstItem="jaQ-kJ-SQN" firstAttribute="centerX" secondItem="n9o-Lf-fC7" secondAttribute="centerX" id="l8O-cT-afc"/>
+                                    <constraint firstItem="7T6-ky-Uve" firstAttribute="leading" secondItem="7mB-pg-5jF" secondAttribute="trailing" constant="8" id="lwF-8l-4Y2"/>
+                                    <constraint firstItem="FFV-8A-CUg" firstAttribute="leading" secondItem="cSR-dW-qy8" secondAttribute="trailing" constant="8" id="nAg-FU-Krl"/>
+                                    <constraint firstItem="7mB-pg-5jF" firstAttribute="top" secondItem="n9o-Lf-fC7" secondAttribute="top" constant="8" id="no0-ac-9z2"/>
+                                    <constraint firstItem="7mB-pg-5jF" firstAttribute="leading" secondItem="n9o-Lf-fC7" secondAttribute="leading" constant="17" id="sVZ-gy-FEF"/>
+                                    <constraint firstItem="HfD-l5-iOf" firstAttribute="top" secondItem="7T6-ky-Uve" secondAttribute="bottom" constant="8" id="tL2-px-dlL"/>
+                                    <constraint firstItem="Qcz-5f-kd5" firstAttribute="leading" secondItem="6Kp-PQ-DCL" secondAttribute="trailing" constant="8" id="tPS-qh-xzC"/>
+                                    <constraint firstItem="iSG-Tw-WTx" firstAttribute="top" secondItem="RjV-XY-9gD" secondAttribute="bottom" constant="8" id="tvk-XC-pUZ"/>
+                                    <constraint firstItem="GEb-Ej-58f" firstAttribute="leading" secondItem="73J-Ds-D8J" secondAttribute="trailing" constant="8" id="tzR-Nd-eve"/>
+                                    <constraint firstItem="iSG-Tw-WTx" firstAttribute="leading" secondItem="HfD-l5-iOf" secondAttribute="trailing" constant="8" id="u8G-XZ-jCu"/>
                                     <constraint firstAttribute="height" constant="367" id="utC-qJ-V7V"/>
+                                    <constraint firstItem="uFb-mg-JLN" firstAttribute="leading" secondItem="YZl-TV-suB" secondAttribute="trailing" constant="8" id="xha-Cs-GcX"/>
+                                    <constraint firstItem="C0H-7h-jPR" firstAttribute="top" secondItem="n9o-Lf-fC7" secondAttribute="top" constant="8" id="zPq-k9-g5W"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -1115,11 +1364,39 @@
                             <constraint firstItem="G0n-Vt-hyU" firstAttribute="top" secondItem="x2x-oj-1ua" secondAttribute="bottom" constant="8" id="jRn-7h-cqd"/>
                             <constraint firstItem="yKA-Ej-09j" firstAttribute="centerY" secondItem="kCF-mb-811" secondAttribute="centerY" id="lnB-nx-dkd"/>
                             <constraint firstItem="n9o-Lf-fC7" firstAttribute="top" secondItem="kCF-mb-811" secondAttribute="bottom" constant="19" id="mtV-q9-lF2"/>
+                            <constraint firstItem="n9o-Lf-fC7" firstAttribute="centerX" secondItem="NVP-IC-Qbv" secondAttribute="centerX" id="tzn-no-PLJ"/>
                             <constraint firstItem="EUo-Ff-3v8" firstAttribute="trailing" secondItem="n9o-Lf-fC7" secondAttribute="trailing" constant="16" id="wYL-hA-heb"/>
                             <constraint firstItem="yKA-Ej-09j" firstAttribute="bottom" secondItem="qLB-pX-bhq" secondAttribute="bottom" id="zmO-Wk-JSY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EUo-Ff-3v8"/>
                     </view>
+                    <connections>
+                        <outletCollection property="seats" destination="7mB-pg-5jF" collectionClass="NSMutableArray" id="NrC-GJ-Vbs"/>
+                        <outletCollection property="seats" destination="7T6-ky-Uve" collectionClass="NSMutableArray" id="SPd-e0-yXU"/>
+                        <outletCollection property="seats" destination="RjV-XY-9gD" collectionClass="NSMutableArray" id="J0o-T3-Ej8"/>
+                        <outletCollection property="seats" destination="cSR-dW-qy8" collectionClass="NSMutableArray" id="Jhi-06-eMz"/>
+                        <outletCollection property="seats" destination="FFV-8A-CUg" collectionClass="NSMutableArray" id="G7u-eA-h68"/>
+                        <outletCollection property="seats" destination="C0H-7h-jPR" collectionClass="NSMutableArray" id="Dci-Uf-6Hi"/>
+                        <outletCollection property="seats" destination="6RX-zq-3kr" collectionClass="NSMutableArray" id="T1F-HZ-2mL"/>
+                        <outletCollection property="seats" destination="oDS-hI-bCT" collectionClass="NSMutableArray" id="Ska-xp-g3O"/>
+                        <outletCollection property="seats" destination="HfD-l5-iOf" collectionClass="NSMutableArray" id="Ior-75-W9o"/>
+                        <outletCollection property="seats" destination="iSG-Tw-WTx" collectionClass="NSMutableArray" id="Nmh-LW-BkT"/>
+                        <outletCollection property="seats" destination="uCP-Br-OKB" collectionClass="NSMutableArray" id="gwM-mA-tfd"/>
+                        <outletCollection property="seats" destination="ZMD-bP-oJb" collectionClass="NSMutableArray" id="VXh-7X-xjC"/>
+                        <outletCollection property="seats" destination="LZB-D9-HPq" collectionClass="NSMutableArray" id="s9x-Gm-DhJ"/>
+                        <outletCollection property="seats" destination="zYJ-DP-GsO" collectionClass="NSMutableArray" id="mtb-ek-cFh"/>
+                        <outletCollection property="seats" destination="YZl-TV-suB" collectionClass="NSMutableArray" id="mk9-17-dYy"/>
+                        <outletCollection property="seats" destination="uFb-mg-JLN" collectionClass="NSMutableArray" id="OyV-Tt-OV1"/>
+                        <outletCollection property="seats" destination="29V-yq-FXa" collectionClass="NSMutableArray" id="Irp-BE-kvp"/>
+                        <outletCollection property="seats" destination="6Kp-PQ-DCL" collectionClass="NSMutableArray" id="oN1-iX-sxF"/>
+                        <outletCollection property="seats" destination="Qcz-5f-kd5" collectionClass="NSMutableArray" id="Dbe-hM-CcZ"/>
+                        <outletCollection property="seats" destination="JTH-r5-sdb" collectionClass="NSMutableArray" id="HXW-O0-BkL"/>
+                        <outletCollection property="seats" destination="ro8-Oe-Ndo" collectionClass="NSMutableArray" id="JWe-lZ-oWO"/>
+                        <outletCollection property="seats" destination="73J-Ds-D8J" collectionClass="NSMutableArray" id="dXe-GR-o0Y"/>
+                        <outletCollection property="seats" destination="GEb-Ej-58f" collectionClass="NSMutableArray" id="yrM-Zw-oBs"/>
+                        <outletCollection property="seats" destination="HbF-Jo-cit" collectionClass="NSMutableArray" id="jRE-Fp-cxJ"/>
+                        <outletCollection property="seats" destination="Wyn-D3-KlN" collectionClass="NSMutableArray" id="JOm-Xz-e6e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q40-ZF-Mp3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1326,13 +1603,16 @@
     </scenes>
     <resources>
         <image name="back_arrow" width="36" height="36"/>
+        <image name="baseline_event_seat_black_18dp" width="36" height="36"/>
         <image name="favourite" width="36" height="36"/>
         <image name="home_icon" width="36" height="36"/>
         <image name="theatre" width="36" height="36"/>
         <image name="top_movie" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="f4S-q0-gkw"/>
         <segue reference="QmD-5a-Vc2"/>
+        <segue reference="3Lm-A3-ZJ3"/>
         <segue reference="qTC-uE-xgK"/>
     </inferredMetricsTieBreakers>
 </document>

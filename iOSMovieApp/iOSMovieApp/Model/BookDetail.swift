@@ -19,13 +19,15 @@ struct BookDetail{
     var totalPrice: Double
     var theatre: Theatre?
     var seats: [String]?
+    var numOfSeat: Int
     
-    init(movieId: Int,day: Day, timeSlot: Double, totalPrice: Double, theatre: Theatre, seats: [String]){
+    init(movieId: Int,day: Day, timeSlot: Double, totalPrice: Double, theatre: Theatre, numOfSeat: Int,seats: [String]){
         self.movieId = movieId
         self.day = day
         self.timeSlot = timeSlot
         self.totalPrice = totalPrice
         self.theatre = theatre
         self.seats = seats
+        self.numOfSeat = numOfSeat
     }
 }

@@ -13,6 +13,7 @@ class BookingViewController: UIViewController, UITextFieldDelegate {
     var movieId: Int?
     var bookDetail: BookDetail?
     var totalAmount: Double = 0.0
+    var numOfSeat: Int = 0
     
     @IBOutlet weak var textBox: UITextField!
 
@@ -25,11 +26,31 @@ class BookingViewController: UIViewController, UITextFieldDelegate {
     private let ticketPrice: Double = 15.00;
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        totalPrice.text = String("$0.0")
+        setbackBookingValues()
+        totalPrice.text = String(totalAmount)
         // Do any additional setup after loading the view.
     }
     
+    func setbackBookingValues(){
+        if let bookingVal = bookDetail {
+            movieId = bookingVal.movieId
+            totalAmount = Double(bookingVal.numOfSeat) * 15.00
+            textBox.text! = String(bookingVal.numOfSeat)
+            daySeg.selectedSegmentIndex = bookingVal.day.rawValue
+            var timeSegIdx = 0
+            switch bookingVal.timeSlot {
+            case 3.00:
+                timeSegIdx = 0
+            case 1:
+                timeSegIdx = 2
+            case 2:
+                timeSegIdx = 3
+            default:
+                break
+            }
+            timeSeg.selectedSegmentIndex = timeSegIdx
+        }
+    }
     @IBAction func backToDetail(_ sender: Any) {
         performSegue(withIdentifier: "backToDetail", sender: self)
     }
@@ -50,7 +71,7 @@ class BookingViewController: UIViewController, UITextFieldDelegate {
                 time = 0.0
             }
             
-            bookDetail = BookDetail(movieId: self.movieId!,day: Day(rawValue: daySeg.selectedSegmentIndex)!, timeSlot: time, totalPrice: totalAmount, theatre: Theatre(), seats: [])
+            bookDetail = BookDetail(movieId: self.movieId!,day: Day(rawValue: daySeg.selectedSegmentIndex)!, timeSlot: time, totalPrice: totalAmount, theatre: Theatre(), numOfSeat: self.numOfSeat, seats: [])
             seatVC.bookingDetail = bookDetail
         }
     }
@@ -91,6 +112,7 @@ class BookingViewController: UIViewController, UITextFieldDelegate {
                 // display invalid msg
                 return
             }
+            numOfSeat = number
             totalAmount = Double(number) * 15.00
             totalPrice!.text = String("$\(totalAmount)")
         }
