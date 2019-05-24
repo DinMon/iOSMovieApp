@@ -22,14 +22,14 @@ class SeatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        var count = 0
         firedb.child("Theatre").child("1").child("Seats").observe(.value) { (snapshot) in
             
-            let value = snapshot.value as? NSDictionary
-            
-            let username = value?["1"] as? String ?? ""
-            print(username)
-        
+            let values = snapshot.value as! [String]
+            for i in 0..<values.count{
+                if values[i] == "Unavailable"{
+                    self.seats[i].tintColor = .red
+                }
+            }
         }
         // Do any additional setup after loading the view.
         print(bookingDetail!.movieId)
