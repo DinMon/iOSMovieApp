@@ -8,6 +8,9 @@
 
 import UIKit
 
+///The Category Page to display movies in a collection view
+/// Contains a container that displays a GridViewController
+/// so that both theatre and top rated movies can be displayed
 class TopRatedViewController: UIViewController {
     
     private var gridViewController: GridViewController?

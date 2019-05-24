@@ -9,6 +9,9 @@
 import Foundation
 import MapKit
 
+
+/// Extends MKAnnotation for the different properties that will be used
+/// for the annocation of a theatre
 final class TheatreAnnotation: NSObject, MKAnnotation{
     var coordinate: CLLocationCoordinate2D
     var title: String?

@@ -77,6 +77,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
         }
     }
     
+    ///Load trailer to the default browser
     @IBAction func loadTrailer(_ sender: Any) {
         let myUrl = "https://www.youtube.com/watch?v=\(String(describing: movieDetail!.videos!.results.first!.key))"
         print(myUrl)
@@ -91,6 +92,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     
+    ///Deals with adding and removing of movie to favourite list (NOT ONLY ADDING)
     @IBAction func addFavourite(_ sender: Any) {
         if favBtn.titleLabel!.text == "Add Favourite"{
             if let movieRead = movieDetail{
@@ -107,6 +109,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
             }
         }
     }
+    
+    // MARK :- Updating the UI elements content
     
     func updateUIMovieDetail(){
         updateMainSection()
@@ -131,6 +135,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
         countryName!.text = movieDetail!.productionCountries!.first?.name
     }
     
+    // MARK :- Shortening and lengthening the top image when user scroll
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let y = -scrollView.contentOffset.y + 350 // should be a bit than 300
         let height = min(max(y, 80), 300)
@@ -141,6 +147,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
         mainStackView.frame = CGRect(x: mainStackView.frame.origin.x, y: height + gapBtwHeader, width: mainStackView.frame.width, height: mainStackView.frame.height)
         
     }
+    
+    // MARK :- CollectionView
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return recommendations.count
@@ -157,12 +165,20 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
         return cell
     }
 
+    
+    /// Updating the state of Favourite button from local favourite save in json file (inside Document directory)
+    ///
+    /// - Parameter data: favourite movies
     func didFetchMovies(data: [Movie]) {
         if data.contains(where: { movie in movie.id == movieDetail!.id }) {
             changeBtnToRemove()
         }
     }
     
+    
+    /// Updating the movie details for UI in DetailVC
+    ///
+    /// - Parameter data: Single movie detail
     func didFetchMovie(data: MovieDetail) {
         self.movieDetail = data
         FavouriteController.shared.requestForFavourites(sender: self)
@@ -172,6 +188,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
         }
     }
     
+    // MARK :- Favourite button state change
     func changeBtnToRemove(){
         DispatchQueue.main.async {
             self.favBtn.setTitle("Remove Favourite", for: .normal)
@@ -185,6 +202,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
             self.favBtn.setTitleColor(.green, for: .normal)
         }
     }
+    
     
     func didAppendMovie() {
         changeBtnToRemove()

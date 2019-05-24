@@ -8,6 +8,9 @@
 
 import Foundation
 
+///The file Movie.swift containing the exact mapping of codable class for MovieDB API to fetch multiple movies
+
+/// MARK: - MovieList
 struct MovieList: Codable {
     let page, totalResults, totalPages: Int?
     let results: [Movie]

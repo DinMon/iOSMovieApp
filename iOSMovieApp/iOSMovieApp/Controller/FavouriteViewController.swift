@@ -49,6 +49,8 @@ class FavouriteViewController: UIViewController, UITableViewDelegate, UITableVie
         FavouriteController.shared.requestForFavourites(sender: self)
     }
     
+    // MARK :- TableView
+    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return movies.count
     }
@@ -70,7 +72,8 @@ class FavouriteViewController: UIViewController, UITableViewDelegate, UITableVie
         let share = shareAction(at: indexPath)
         return UISwipeActionsConfiguration(actions: [delete,share])
     }
-    
+
+    // MARK :- TableViewCell Action
     func deleteAction(at indexPath: IndexPath) -> UIContextualAction{
         let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
             self.movies.remove(at: indexPath.row)
@@ -109,6 +112,7 @@ class FavouriteViewController: UIViewController, UITableViewDelegate, UITableVie
         return action
     }
     
+    // MARK :- Network Controller delegate
     func didFetchMovies(data: [Movie]) {
         DispatchQueue.main.async { // Make sure you're on the main thread here
             MBProgressHUD.hide(for: self.view, animated: true)

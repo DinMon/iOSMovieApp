@@ -9,19 +9,21 @@
 import UIKit
 import Foundation
 
+/// The Main Page containing a TableView
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, MoviesControllerDelegate {
-   
-    
-    
-    
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
     var movieController: MoviesController?
+    
+    // Contains movies fetch from the API
     var movies = [Movie]()
     
     var refresher: UIRefreshControl!
 
+    
+    /// Contains the movies with conditions(filter)
     var filteredMovies = [Movie](){
         didSet {
             DispatchQueue.main.async {
@@ -42,6 +44,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         fetchData(endpoint: "movie/upcoming?")
     }
+    
+     // MARK :- Table View
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return filteredMovies.count
@@ -78,6 +82,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     // MARK :- Fetch from Network controller
+    
     @objc func fetchData(endpoint: String){
         MBProgressHUD.showAdded(to: self.view, animated: true)
         movieController?.fetch(endpoint: endpoint)

@@ -46,6 +46,8 @@ class BookingViewController: UIViewController, UITextFieldDelegate, MKMapViewDel
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
+    // MARK :- Map view
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let theatreAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier) as? MKMarkerAnnotationView{
             theatreAnnotationView.animatesWhenAdded = true
@@ -104,28 +106,6 @@ class BookingViewController: UIViewController, UITextFieldDelegate, MKMapViewDel
     
     @IBAction func bookSeat(_ sender: Any) {
         performSegue(withIdentifier: "seatBook", sender: self)
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        updateTotalAmount(textfield: textField)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        updateTotalAmount(textfield: textField)
-        return true
-    }
-    
-    func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        return true
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let length = (textField.text?.count)! + string.count
-        if length > 2{
-            return false
-        }else{
-            return true
-        }
     }
     
     @IBAction func updateTotalPrice(_ sender: Any) {

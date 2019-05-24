@@ -43,6 +43,8 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         fetchData(endpoint: self.endpoint)//"discover/movie?sort_by=popularity.desc&")
     }
     
+    // MARK :- Disable Navigation Bar before going to Detail Page
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Hide the navigation bar on the this view controller
@@ -73,6 +75,8 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         // Do not use MovieDetail
     }
     
+    // MARK :- CollectionView
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return filteredMovies.count
     }
@@ -99,6 +103,8 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
+    
+    /// Defining the small details of the collectionviewcell
     func setupCollectionViewLayout(){
         let width = self.view.frame.size.width/3
         let layout: UICollectionViewFlowLayout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout

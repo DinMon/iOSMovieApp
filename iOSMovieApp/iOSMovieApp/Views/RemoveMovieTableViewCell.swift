@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Define the table cell for a favourite movies in a table view in FavouriteViewController
 class RemoveMovieTableViewCell: UITableViewCell {
 
     
