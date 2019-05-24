@@ -63,6 +63,14 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
         
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Hide the navigation bar on the this view controller
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let bookingVC: BookingViewController = segue.destination as? BookingViewController{
             bookingVC.movieId = movieId!
@@ -100,10 +108,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
         }
     }
     
-    @IBAction func bookMovie(_ sender: Any) {
-        performSegue(withIdentifier: "booking", sender: self)
-    }
-    
     func updateUIMovieDetail(){
         updateMainSection()
         updateDetailSection()
@@ -122,8 +126,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
     func updateDetailSection(){
         genre!.text = movieDetail!.genres!.map{$0.name}.joined(separator: ",")
         movieDesc!.text = movieDetail!.overview
-        companyName!.text = movieDetail!.productionCompanies!.map{$0.name}[0..<2].joined(separator: ", ")
-        actors!.text = movieDetail!.credits!.cast.map{$0.name}[0..<2].joined(separator: ", ")
+        companyName!.text = movieDetail!.productionCompanies!.map{$0.name}[0]
+        actors!.text = movieDetail!.credits!.cast.map{$0.name}[0...2].joined(separator: ", ")
         countryName!.text = movieDetail!.productionCountries!.first?.name
     }
     

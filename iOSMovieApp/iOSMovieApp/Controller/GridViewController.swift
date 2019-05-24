@@ -8,12 +8,14 @@
 
 import UIKit
 
-class GridViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, MoviesControllerDelegate {
+class GridViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate, MoviesControllerDelegate {
     
     
     
 
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var endpoint: String = ""
     
@@ -39,6 +41,18 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView.delegate = self
         
         fetchData(endpoint: self.endpoint)//"discover/movie?sort_by=popularity.desc&")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Hide the navigation bar on the this view controller
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // Show the navigation bar on other view controllers
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     // MARK :- Fetch from Network controller
@@ -73,6 +87,18 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showDetail", sender: indexPath.row)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let detailController: DetailViewController = segue.destination as? DetailViewController{
+            if let index = sender as? Int{
+                detailController.movieId = movies[index].id
+            }
+        }
+    }
+    
     func setupCollectionViewLayout(){
         let width = self.view.frame.size.width/3
         let layout: UICollectionViewFlowLayout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
@@ -82,4 +108,16 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         layout.minimumInteritemSpacing = 5
     }
 
+    // Mark :- SearchBar delegate
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredMovies = searchText.isEmpty ? movies:movies.filter {($0.title).range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+        filteredMovies = movies
+        searchBar.resignFirstResponder()
+    }
 }

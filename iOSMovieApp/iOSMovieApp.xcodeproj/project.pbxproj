@@ -45,6 +45,7 @@
 		9FE9405D229672720007C2E0 /* BookDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE9405C229672720007C2E0 /* BookDetail.swift */; };
 		9FE9405F229674750007C2E0 /* Theatre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE9405E229674750007C2E0 /* Theatre.swift */; };
 		9FE9406122967B9C0007C2E0 /* SeatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE9406022967B9C0007C2E0 /* SeatViewController.swift */; };
+		9FFB796C2297FFDD008AE15F /* TheatreAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFB796B2297FFDD008AE15F /* TheatreAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		9FE9405C229672720007C2E0 /* BookDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetail.swift; sourceTree = "<group>"; };
 		9FE9405E229674750007C2E0 /* Theatre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theatre.swift; sourceTree = "<group>"; };
 		9FE9406022967B9C0007C2E0 /* SeatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatViewController.swift; sourceTree = "<group>"; };
+		9FFB796B2297FFDD008AE15F /* TheatreAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheatreAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 				9F3DD4EE229571580089AC3B /* MovieDetail.swift */,
 				9FE9405C229672720007C2E0 /* BookDetail.swift */,
 				9FE9405E229674750007C2E0 /* Theatre.swift */,
+				9FFB796B2297FFDD008AE15F /* TheatreAnnotation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FFB796C2297FFDD008AE15F /* TheatreAnnotation.swift in Sources */,
 				9FE6BCFE2294458600E08E4C /* MovieFileSaver.swift in Sources */,
 				9F4DA26A22926DE800E7AE75 /* ViewController.swift in Sources */,
 				9F4DA26822926DE800E7AE75 /* AppDelegate.swift in Sources */,

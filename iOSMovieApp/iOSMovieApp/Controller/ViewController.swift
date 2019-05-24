@@ -9,12 +9,13 @@
 import UIKit
 import Foundation
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MoviesControllerDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, MoviesControllerDelegate {
    
     
     
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var movieController: MoviesController?
     var movies = [Movie]()
@@ -34,6 +35,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setupRefreshControls()
+        self.tableView.tableFooterView = UIView() // hack to remove empty separator from tableview
         
         movieController = MoviesController()
         movieController?.delegate = self
@@ -101,6 +103,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         refresher = UIRefreshControl()
         refresher.addTarget(self, action: #selector(self.fetchData), for: .valueChanged)
         tableView.insertSubview(refresher, at: 0)
+    }
+    
+    // MARK :- Search bar
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredMovies = searchText.isEmpty ? movies:movies.filter {($0.title).range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+        filteredMovies = movies
+        searchBar.resignFirstResponder()
     }
 }
 
