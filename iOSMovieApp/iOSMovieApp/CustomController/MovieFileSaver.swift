@@ -14,6 +14,7 @@ protocol MovieFileSaverDelegate{
     func didRemoveMovie()
 }
 
+/// MovieFileSaver deals with saving json file to the document directory
 class MovieFileSaver{
     
     var delegate: MovieFileSaverDelegate?
@@ -75,6 +76,10 @@ class MovieFileSaver{
         }
     }
     
+    /// Save the list of movies to a json
+    ///
+    /// - Parameter fileName: json file name
+    /// - Parameter data: ist of movies to save
     func saveJsonToFile(filename fileName:String, data: Data){
         let documentsUrl = getDocumentsDirectory()
         let destFile = documentsUrl.appendingPathComponent(fileName).appendingPathExtension("json")
@@ -94,6 +99,10 @@ class MovieFileSaver{
         }
     }
     
+    /// Fetch movie from a json file
+    ///
+    /// - Parameter fileName: json file name
+    /// - Returns: list of movie inside json file
     func loadJson(filename fileName: String){
         if copyFileToDocuments(filename: fileName){
             let fileToReadUrl = getDocumentsDirectory().appendingPathComponent(fileName).appendingPathExtension("json")
@@ -110,6 +119,11 @@ class MovieFileSaver{
         }
     }
     
+    
+    /// Fetch movie from a json file
+    ///
+    /// - Parameter fileName: json file name
+    /// - Returns: list of movie inside json file
     func loadJsonData(filename fileName: String) -> [Movie]{
         let fileToReadUrl = getDocumentsDirectory().appendingPathComponent(fileName).appendingPathExtension("json")
         do{

@@ -8,6 +8,8 @@
 
 import Foundation
 
+///Define a theatre: name, id, coordinates
+///TODO: To implement
 struct Theatre: Codable{
     
 }

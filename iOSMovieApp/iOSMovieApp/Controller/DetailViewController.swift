@@ -63,12 +63,21 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
         
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Hide the navigation bar on the this view controller
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let bookingVC: BookingViewController = segue.destination as? BookingViewController{
             bookingVC.movieId = movieId!
         }
     }
     
+    ///Load trailer to the default browser
     @IBAction func loadTrailer(_ sender: Any) {
         let myUrl = "https://www.youtube.com/watch?v=\(String(describing: movieDetail!.videos!.results.first!.key))"
         print(myUrl)
@@ -83,6 +92,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     
+    ///Deals with adding and removing of movie to favourite list (NOT ONLY ADDING)
     @IBAction func addFavourite(_ sender: Any) {
         if favBtn.titleLabel!.text == "Add Favourite"{
             if let movieRead = movieDetail{
@@ -100,9 +110,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
         }
     }
     
-    @IBAction func bookMovie(_ sender: Any) {
-        performSegue(withIdentifier: "booking", sender: self)
-    }
+    // MARK :- Updating the UI elements content
     
     func updateUIMovieDetail(){
         updateMainSection()
@@ -122,10 +130,12 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
     func updateDetailSection(){
         genre!.text = movieDetail!.genres!.map{$0.name}.joined(separator: ",")
         movieDesc!.text = movieDetail!.overview
-        companyName!.text = movieDetail!.productionCompanies!.map{$0.name}[0..<2].joined(separator: ", ")
-        actors!.text = movieDetail!.credits!.cast.map{$0.name}[0..<2].joined(separator: ", ")
+        companyName!.text = movieDetail!.productionCompanies!.map{$0.name}[0]
+        actors!.text = movieDetail!.credits!.cast.map{$0.name}[0...2].joined(separator: ", ")
         countryName!.text = movieDetail!.productionCountries!.first?.name
     }
+    
+    // MARK :- Shortening and lengthening the top image when user scroll
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let y = -scrollView.contentOffset.y + 350 // should be a bit than 300
@@ -137,6 +147,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
         mainStackView.frame = CGRect(x: mainStackView.frame.origin.x, y: height + gapBtwHeader, width: mainStackView.frame.width, height: mainStackView.frame.height)
         
     }
+    
+    // MARK :- CollectionView
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return recommendations.count
@@ -153,12 +165,20 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
         return cell
     }
 
+    
+    /// Updating the state of Favourite button from local favourite save in json file (inside Document directory)
+    ///
+    /// - Parameter data: favourite movies
     func didFetchMovies(data: [Movie]) {
         if data.contains(where: { movie in movie.id == movieDetail!.id }) {
             changeBtnToRemove()
         }
     }
     
+    
+    /// Updating the movie details for UI in DetailVC
+    ///
+    /// - Parameter data: Single movie detail
     func didFetchMovie(data: MovieDetail) {
         self.movieDetail = data
         FavouriteController.shared.requestForFavourites(sender: self)
@@ -168,6 +188,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
         }
     }
     
+    // MARK :- Favourite button state change
     func changeBtnToRemove(){
         DispatchQueue.main.async {
             self.favBtn.setTitle("Remove Favourite", for: .normal)
@@ -181,6 +202,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, UICollection
             self.favBtn.setTitleColor(.green, for: .normal)
         }
     }
+    
     
     func didAppendMovie() {
         changeBtnToRemove()

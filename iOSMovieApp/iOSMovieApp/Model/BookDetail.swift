@@ -12,6 +12,8 @@ enum Day:Int{
     case Thu = 0, Fri = 1, Sat = 2, Sun = 3
 }
 
+
+/// Describe the details of a booking
 struct BookDetail{
     var movieId: Int
     var day: Day

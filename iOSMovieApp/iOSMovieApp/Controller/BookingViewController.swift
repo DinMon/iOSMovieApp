@@ -7,16 +7,19 @@
 //
 
 import UIKit
+import MapKit
 
-class BookingViewController: UIViewController, UITextFieldDelegate {
-
+class BookingViewController: UIViewController, UITextFieldDelegate, MKMapViewDelegate {
+    
     var movieId: Int?
     var bookDetail: BookDetail?
     var totalAmount: Double = 0.0
     var numOfSeat: Int = 0
     
+    @IBOutlet weak var mapView: MKMapView!
+    
     @IBOutlet weak var textBox: UITextField!
-
+    
     @IBOutlet weak var totalPrice: UILabel!
     
     @IBOutlet weak var daySeg: UISegmentedControl!
@@ -26,9 +29,34 @@ class BookingViewController: UIViewController, UITextFieldDelegate {
     private let ticketPrice: Double = 15.00;
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        let theatreCoord = CLLocationCoordinate2D(latitude: -37.810220, longitude: 144.961390)
+        let theatreAnnotation = TheatreAnnotation(coordinate: theatreCoord, title: "Movie Theatre", subtitle: "The best cinema in Melbourne")
+        mapView.addAnnotation(theatreAnnotation)
+        mapView.setRegion(theatreAnnotation.region, animated: true)
         setbackBookingValues()
         totalPrice.text = String(totalAmount)
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Hide the navigation bar on the this view controller
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    // MARK :- Map view
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if let theatreAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier) as? MKMarkerAnnotationView{
+            theatreAnnotationView.animatesWhenAdded = true
+            theatreAnnotationView.titleVisibility = .adaptive
+            theatreAnnotationView.titleVisibility = .adaptive
+            
+            return theatreAnnotationView
+        }
+        return nil
     }
     
     func setbackBookingValues(){
@@ -80,28 +108,6 @@ class BookingViewController: UIViewController, UITextFieldDelegate {
         performSegue(withIdentifier: "seatBook", sender: self)
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        updateTotalAmount(textfield: textField)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-       updateTotalAmount(textfield: textField)
-        return true
-    }
-    
-    func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        return true
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let length = (textField.text?.count)! + string.count
-        if length > 2{
-            return false
-        }else{
-            return true
-        }
-    }
-    
     @IBAction func updateTotalPrice(_ sender: Any) {
         updateTotalAmount(textfield: sender)
     }
@@ -117,4 +123,6 @@ class BookingViewController: UIViewController, UITextFieldDelegate {
             totalPrice!.text = String("$\(totalAmount)")
         }
     }
+    
+    
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Define the grid cell for the collection view to display category in GridViewController
 class MovieCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var movieImage: UIImageView!

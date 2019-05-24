@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Define a collection view cell to display recommendation movies in DetailViewController
 class RecommendationCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var recommendImage: UIImageView!

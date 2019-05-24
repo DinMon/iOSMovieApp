@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// FavouriteController abstract the interaction between the VC and the json file controller
 class FavouriteController{
     static let shared = FavouriteController()
     

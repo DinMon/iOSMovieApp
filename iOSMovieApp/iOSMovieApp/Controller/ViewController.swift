@@ -9,18 +9,21 @@
 import UIKit
 import Foundation
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MoviesControllerDelegate {
-   
-    
-    
-    
+/// The Main Page containing a TableView
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, MoviesControllerDelegate {
+
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var movieController: MoviesController?
+    
+    // Contains movies fetch from the API
     var movies = [Movie]()
     
     var refresher: UIRefreshControl!
 
+    
+    /// Contains the movies with conditions(filter)
     var filteredMovies = [Movie](){
         didSet {
             DispatchQueue.main.async {
@@ -34,12 +37,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setupRefreshControls()
+        self.tableView.tableFooterView = UIView() // hack to remove empty separator from tableview
         
         movieController = MoviesController()
         movieController?.delegate = self
         
         fetchData(endpoint: "movie/upcoming?")
     }
+    
+     // MARK :- Table View
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return filteredMovies.count
@@ -76,6 +82,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     // MARK :- Fetch from Network controller
+    
     @objc func fetchData(endpoint: String){
         MBProgressHUD.showAdded(to: self.view, animated: true)
         movieController?.fetch(endpoint: endpoint)
@@ -101,6 +108,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         refresher = UIRefreshControl()
         refresher.addTarget(self, action: #selector(self.fetchData), for: .valueChanged)
         tableView.insertSubview(refresher, at: 0)
+    }
+    
+    // MARK :- Search bar
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredMovies = searchText.isEmpty ? movies:movies.filter {($0.title).range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+        filteredMovies = movies
+        searchBar.resignFirstResponder()
     }
 }
 

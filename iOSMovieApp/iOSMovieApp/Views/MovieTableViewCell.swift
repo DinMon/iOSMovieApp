@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+/// Define the table view cell layout for the ViewController
 class MovieTableViewCell: UITableViewCell {
     
     @IBOutlet weak var movieImage: UIImageView!
